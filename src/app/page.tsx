@@ -19,12 +19,13 @@ export default function Home() {
         return (
           <>
           <p>{ items.name } </p>
-          < img src = { items.imagem } alt = "imagems" />}
-            </>
+          < img style = {{ width: '250px' }
+      }  src = { items.imagem } alt = "imagems" />}
+    </>
 
 
       )
-    })
+})
 }
 
 
