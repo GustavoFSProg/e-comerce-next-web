@@ -1,6 +1,6 @@
 import Products from './Product'
 
-const produtos: Products[] = [
+export const produtos: Products[] = [
     {
         id: 1,
         name: 'Notebook AR-3',
