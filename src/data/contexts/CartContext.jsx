@@ -13,10 +13,10 @@ export function CartContextProvider(props) {
         value={{
           number,
           setNumber,
-          increment: () => {
+          adicionar: () => {
             setNumber(number + 1)
           },
-          decrease: () => {
+          remover: () => {
             setNumber(number - 1)
           },
         }}

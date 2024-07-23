@@ -5,16 +5,16 @@ import { Pagina } from '../../components/template/Pagina'
 import { CartContext, CartContextProvider } from '@/data/contexts/CartContext'
 
 export default function Carrinho() {
-  const { number, increment, decrease } = useContext(CartContext)
+  const { number, adiconar, remover } = useContext(CartContext)
 
   return (
     <>
       <div>
         <Pagina>
           <div>{number}</div>
-          <button onClick={increment}>Adicionar</button>
+          <button onClick={adiconar}>Adicionar</button>
           <br />
-          <button onClick={decrease}>Diminuir</button>
+          <button onClick={remover}>Diminuir</button>
         </Pagina>
       </div>
     </>
