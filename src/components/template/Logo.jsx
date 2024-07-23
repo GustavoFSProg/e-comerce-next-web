@@ -8,8 +8,8 @@ import Link from 'next/link'
 export function Logo() {
   return (
     <Link href="/">
-      <div>
-        <div>A Z</div>
+      <div className="flex flex-col items-center mt-1">
+        <div className="text-xl leading-4">A Z</div>
         <IconBrandAmazon size={40} stroke={1} />
       </div>
     </Link>

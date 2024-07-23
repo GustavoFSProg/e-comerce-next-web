@@ -1,14 +1,14 @@
 'use client'
 
-import { Carrinho } from './Carrinho'
+import Link from 'next/link'
 import { Logo } from './Logo'
 
 // import { PaginaProps } from './Interface'
 
-export function Cabecalho() {
+export function Carrinho() {
   return (
-    <div className="flex flex-row w-full">
-      <Logo />
+    <div>
+      <Link href="/carrinho">Carrinho</Link>
     </div>
   )
 }
