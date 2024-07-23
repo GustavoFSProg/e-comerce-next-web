@@ -36,6 +36,7 @@ export default function Home() {
                 descricao={items.descricao}
                 preco={items.preco}
                 imagem={items.imagem}
+                id={items.id}
               />
             )
           })}

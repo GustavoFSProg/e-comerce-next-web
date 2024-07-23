@@ -1,4 +1,5 @@
 import { CartContext } from '@/data/contexts/CartContext'
+import useLocalStorage from '@/data/hooks/useLocalStorage'
 import Image from 'next/image'
 import { useContext } from 'react'
 
@@ -8,27 +9,40 @@ import { useContext } from 'react'
 
 export default function ProductCard(props) {
   const { items, setItems, setNumber, number } = useContext(CartContext)
-  const { nome, descricao, preco, imagem } = props
+  const { id, nome, descricao, preco, imagem } = props
   const produto = { nome, descricao, preco, imagem }
+  const { set, get } = useLocalStorage()
 
   function adicionar(props) {
-    // const indice = items.findIndex((i) => i.props.id === props.id)
+    const indice = items.findIndex((i) => i.id === props.id)
 
-    setItems([...items, { nome, descricao, preco, imagem }])
+    if (indice === -1) {
+      setItems([...items, { id, nome, descricao, preco, imagem }])
 
-    setNumber(number + 1)
+      setNumber(number + 1)
+    } else {
+      setItems([...items])
+    }
 
     return console.log(items)
-
-    //   if (indice === -1) {
-    //     alteraritems([...items, { props, quantidade: 1 }])
-    //   } else {
-    //     const novosItens = [...itens]
-    //     novosItens[indice].quantidade++
-    //     alterarItens(novosItens)
-    //   }
-    // }
   }
+
+  // function adicionar(props) {
+  //   const indice = items.findIndex((i) => i.props.id === props.id)
+
+  //   if (indice === -1) {
+  //     alterarItens([...items, { props, quantidade: 1 }])
+  //   } else {
+  //     const novosItens = [...items]
+  //     novosItens[indice].quantidade++
+  //     alterarItens(novosItens)
+  //   }
+  // }
+
+  // function alterarItens(novosItens) {
+  //   setItems(novosItens)
+  //   set('carrinho', novosItens)
+  // }
 
   return (
     <div className="flex flex-col w-72 bg-zinc-950">
@@ -48,7 +62,7 @@ export default function ProductCard(props) {
           </button> */}
           <button
             className="border rounded-full px-5 py-1 text-sm"
-            onClick={() => adicionar({ nome, descricao, preco, imagem })}
+            onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
           >
             Adicionar
           </button>
