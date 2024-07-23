@@ -31,7 +31,7 @@ export default function ProductCard(props) {
   }
 
   return (
-    <div className="flex flex-col w-72 bg-zinc-900">
+    <div className="flex flex-col w-72 bg-zinc-950">
       <div className="relative w-72 h-52">
         <Image src={imagem} alt={nome} fill className="object-cover" />
       </div>
@@ -46,7 +46,12 @@ export default function ProductCard(props) {
           >
             Adicionar
           </button> */}
-          <button onClick={() => adicionar({ nome, descricao, preco, imagem })}>Adicionar</button>
+          <button
+            className="border rounded-full px-5 py-1 text-sm"
+            onClick={() => adicionar({ nome, descricao, preco, imagem })}
+          >
+            Adicionar
+          </button>
           {/* <button onClick={diminuir}>Diminuir</button> */}
         </div>
       </div>
