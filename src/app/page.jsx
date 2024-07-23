@@ -8,10 +8,19 @@ import { CartContext } from '@/data/contexts/CartContext'
 import Products from '@/data/model/Product'
 import { produtos } from '@/data/model/Products-json'
 import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 export default function Home() {
   const { number } = useContext(CartContext)
+  const [data, setData] = useState([])
+
+  function GetDataProducts() {
+    setData(produtos)
+  }
+
+  useEffect(() => {
+    GetDataProducts()
+  })
 
   return (
     <Pagina>
@@ -19,12 +28,18 @@ export default function Home() {
       <br />
       {number}
       <main className="flex  flex-col items-center justify-between p-24">
-        <ProductCard
-          nome="PC - Notebook"
-          descricao="Desxcrição - 1"
-          preco={22}
-          imagem="https://images.unsplash.com/photo-1482746673045-d8c155829510?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        />
+        <div className="flex gap-5 justify-center flex-wrap">
+          {data.map((items) => {
+            return (
+              <ProductCard
+                nome={items.name}
+                descricao={items.descricao}
+                preco={items.preco}
+                imagem={items.imagem}
+              />
+            )
+          })}
+        </div>
       </main>
     </Pagina>
   )
