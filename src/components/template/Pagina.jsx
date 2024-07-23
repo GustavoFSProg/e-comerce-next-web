@@ -5,7 +5,7 @@ import { Carrinho } from './Carrinho'
 
 // import { PaginaProps } from './Interface'
 
-export function Pagina(props) {
+export function Pagina() {
   return (
     <header
       className="flex w-full justify-between items-center 
