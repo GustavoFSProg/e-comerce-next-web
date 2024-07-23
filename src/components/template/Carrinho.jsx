@@ -3,10 +3,13 @@
 import Link from 'next/link'
 import { Logo } from './Logo'
 import { IconShoppingCart } from '@tabler/icons-react'
+import { useContext } from 'react'
+import { CartContext } from '@/data/contexts/CartContext'
 
 // import { PaginaProps } from './Interface'
 
 export function Carrinho() {
+  const { number } = useContext(CartContext)
   return (
     <Link href="/carrinho">
       <div className="flex items-center relative mr-2">
@@ -18,7 +21,7 @@ export function Carrinho() {
         font-bold
         absolute w-6 p-px  h-6 -top-2.5 ml-4 w-6 h-6 bg-red-600 rounded-full"
         >
-          19
+          {number}
         </div>
       </div>
     </Link>

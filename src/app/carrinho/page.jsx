@@ -1,18 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Pagina } from '../../components/template/Pagina'
+import { CartContext, CartContextProvider } from '@/data/contexts/CartContext'
 
 export default function Carrinho() {
-  const [number, setNumber] = useState(0)
+  const { number, increment, decrease } = useContext(CartContext)
+
   return (
     <>
       <div>
         <Pagina>
           <div>{number}</div>
-          <button onClick={() => setNumber(number + 1)}>Adicionar</button>
+          <button onClick={increment}>Adicionar</button>
           <br />
-          <button onClick={() => setNumber(number - 1)}>Diminuir</button>
+          <button onClick={decrease}>Diminuir</button>
         </Pagina>
       </div>
     </>
