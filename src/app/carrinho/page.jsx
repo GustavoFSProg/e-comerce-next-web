@@ -4,10 +4,10 @@ import { Pagina } from '../../components/template/Pagina'
 export default function Carrinho() {
   return (
     <>
-      <header>
+      <div>
         <Pagina />
         <div>MEU CARRINHO!!</div>
-      </header>
+      </div>
     </>
   )
 }
