@@ -10,11 +10,11 @@ export function Pagina(props) {
       <div
         className="flex flex-col items-center
       
-      bg-zinc-900 h-20  min-h-screen"
+      bg-zinc-950 h-20  min-h-screen"
       >
         <Cabecalho />
         <main
-          className={`flex-1 w-[1200px] mx-auto h-100 bg-zinc-600 text-white ${
+          className={`flex-1 w-[1200px] mx-auto h-100 bg-zinc-900 text-white ${
             props.className ?? ''
           } py-10 `}
         >
