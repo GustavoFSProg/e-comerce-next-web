@@ -5,8 +5,9 @@ export default function Carrinho() {
   return (
     <>
       <div>
-        <Pagina />
-        <div>MEU CARRINHO!!</div>
+        <Pagina>
+          <div>MEU CARRINHO!</div>
+        </Pagina>
       </div>
     </>
   )

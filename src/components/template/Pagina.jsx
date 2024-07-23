@@ -18,7 +18,7 @@ export function Pagina(props) {
             props.className ?? ''
           } py-10 `}
         >
-          MAIN
+          {props.children}
         </main>
       </div>
     </>
