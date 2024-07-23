@@ -7,7 +7,7 @@ import { useContext } from 'react'
 // }
 
 export default function ProductCard(props) {
-  const { adicionar } = useContext(CartContext)
+  const { adicionar, diminuir } = useContext(CartContext)
   const { nome, descricao, preco, imagem } = props
   return (
     <div className="flex flex-col w-72 bg-zinc-900">
@@ -19,12 +19,14 @@ export default function ProductCard(props) {
         <p className="flex-1 text-sm text-zinc-400"> {descricao} </p>
         <div className="flex justify-between items-center">
           <span className="text-lg font-semibold mt-2"> R$ {preco.toFixed(2)} </span>
-          <button
+          {/* <button
             onClick={() => adicionar(props.produto)}
             className="border rounded-full px-5 py-1 text-sm"
           >
             Adicionar
-          </button>
+          </button> */}
+          <button onClick={adicionar}>Adicionar</button>
+          {/* <button onClick={diminuir}>Diminuir</button> */}
         </div>
       </div>
     </div>
