@@ -7,6 +7,7 @@ export const CartContext = createContext(0)
 export function CartContextProvider(props) {
   const [items, setItems] = useState([])
   const [number, setNumber] = useState(0)
+  const [quantity, setQuantity] = useState(1)
 
   function adds() {
     setNumber(number + 1)
@@ -46,6 +47,8 @@ export function CartContextProvider(props) {
           number,
           setNumber,
           adds,
+          setQuantity,
+          quantity,
         }}
       >
         {props.children}

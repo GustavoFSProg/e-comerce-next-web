@@ -1,14 +1,14 @@
 import { CartContext } from '@/data/contexts/CartContext'
 import useLocalStorage from '@/data/hooks/useLocalStorage'
 import Image from 'next/image'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 // export interface CartaoProdutoProps {
 //   produto: Produto;
 // }
 
 export default function ProductCard(props) {
-  const { items, setItems, setNumber, number } = useContext(CartContext)
+  const { items, setItems, setNumber, number, setQuantity, quantity } = useContext(CartContext)
   const { id, nome, descricao, preco, imagem } = props
   const produto = { nome, descricao, preco, imagem }
   const { set, get } = useLocalStorage()
@@ -22,6 +22,7 @@ export default function ProductCard(props) {
       setNumber(number + 1)
     } else {
       setItems([...items])
+      setQuantity(quantity + 1)
     }
 
     return console.log(items)
@@ -60,6 +61,7 @@ export default function ProductCard(props) {
           >
             Adicionar
           </button> */}
+          <p>QTD: {quantity}</p>
           <button
             className="border rounded-full px-5 py-1 text-sm"
             onClick={() => adicionar({ id, nome, descricao, preco, imagem })}

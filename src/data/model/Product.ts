@@ -4,5 +4,6 @@ export default interface Products {
     preco: number
     descricao: string
     imagem: string
+    quantity: number
 
 }
