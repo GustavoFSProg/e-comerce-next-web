@@ -7,8 +7,14 @@ import { Logo } from './Logo'
 
 export function Cabecalho() {
   return (
-    <div className="flex flex-row w-full">
+    <div
+      // className="flex flex-row w-full"
+      className="flex w-full justify-between items-center 
+      
+    bg-zinc-800 h-20 px-10"
+    >
       <Logo />
+      <Carrinho />
     </div>
   )
 }

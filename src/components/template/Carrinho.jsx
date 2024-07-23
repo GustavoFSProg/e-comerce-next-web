@@ -9,7 +9,7 @@ import { IconShoppingCart } from '@tabler/icons-react'
 export function Carrinho() {
   return (
     <Link href="/carrinho">
-      <div className="flex items-center relative">
+      <div className="flex items-center relative -mr-8">
         <IconShoppingCart size={32} stroke={1} />-
         <div
           className="

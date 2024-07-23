@@ -7,14 +7,16 @@ import { Carrinho } from './Carrinho'
 
 export function Pagina() {
   return (
-    <header
-      className="flex w-full justify-between items-center 
-    
-    bg-zinc-800 h-20 px-10"
-    >
-      <Cabecalho />
-      <Carrinho />
-    </header>
+    <>
+      <div
+        className="flex w-full justify-between items-center 
+      
+      bg-zinc-800 h-20 px-10"
+      >
+        <Cabecalho />
+      </div>
+      <main className="w-[1200px] mx-auto h-100 bg-white text-black">MAIN</main>
+    </>
   )
 }
 
