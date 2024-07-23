@@ -1,7 +1,6 @@
 'use client'
 
 import { Cabecalho } from './Cabecalho'
-import { Carrinho } from './Carrinho'
 
 // import { PaginaProps } from './Interface'
 
@@ -9,15 +8,13 @@ export function Pagina() {
   return (
     <>
       <div
-        className="flex w-full justify-between items-center 
+        className="flex flex-col items-center 
       
-      bg-zinc-800 h-20 px-10"
+      bg-zinc-900 h-20  min-h-screen"
       >
         <Cabecalho />
+        <main className="flex-1 w-[1200px] mx-auto h-100 bg-zinc-600 text-white">MAIN</main>
       </div>
-      <main className="w-[1200px] mx-auto h-100 bg-white text-black">MAIN</main>
     </>
   )
 }
-
-// export default Pagina
