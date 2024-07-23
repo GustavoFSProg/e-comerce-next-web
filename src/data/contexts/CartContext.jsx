@@ -5,20 +5,27 @@ import { createContext, useState } from 'react'
 export const CartContext = createContext(0)
 
 export function CartContextProvider(props) {
-  const [number, setNumber] = useState(4)
+  const [items, setItems] = useState([])
+
+  function adicionar(produto) {
+    const indice = itens.findIndex((i) => i.produto.id === produto.id)
+
+    if (indice === -1) {
+      alterarItens([...itens, { produto, quantidade: 1 }])
+    } else {
+      const novosItens = [...itens]
+      novosItens[indice].quantidade++
+      alterarItens(novosItens)
+    }
+  }
 
   return (
     <div>
       <CartContext.Provider
         value={{
-          number,
-          setNumber,
-          adicionar: () => {
-            setNumber(number + 1)
-          },
-          remover: () => {
-            setNumber(number - 1)
-          },
+          items,
+          setItems,
+          adicionar,
         }}
       >
         {props.children}
