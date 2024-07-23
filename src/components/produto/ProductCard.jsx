@@ -9,12 +9,12 @@ import { useContext } from 'react'
 export default function ProductCard(props) {
   const { items, setItems, setNumber, number } = useContext(CartContext)
   const { nome, descricao, preco, imagem } = props
-  const produto = [nome, descricao, preco, imagem]
+  const produto = { nome, descricao, preco, imagem }
 
-  function adicionar({ nome, descricao, preco, imagem }) {
+  function adicionar(props) {
     // const indice = items.findIndex((i) => i.props.id === props.id)
 
-    setItems({ nome, descricao, preco, imagem })
+    setItems([...items, { nome, descricao, preco, imagem }])
 
     setNumber(number + 1)
 

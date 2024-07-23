@@ -5,7 +5,7 @@ import { createContext, useState } from 'react'
 export const CartContext = createContext(0)
 
 export function CartContextProvider(props) {
-  const [items, setItems] = useState({})
+  const [items, setItems] = useState([])
   const [number, setNumber] = useState(0)
 
   function adds() {

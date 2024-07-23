@@ -1,34 +1,55 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Pagina } from '../../components/template/Pagina'
 import { CartContext, CartContextProvider } from '@/data/contexts/CartContext'
 import ProductCard from '@/components/produto/ProductCard'
 
 export default function Carrinho() {
   const { number, adds, adicionar, diminuir, items } = useContext(CartContext)
+  const [data, setData] = useState([])
 
+  console.log(` IOtems carrrinho: ${items}`)
+
+  function GetDataProducts() {
+    setData(items)
+    console.log(`items: ${items}`)
+
+    return console.log(`data: ${data}`)
+  }
+
+  useEffect(() => {
+    GetDataProducts()
+  }, [])
   return (
     <>
       <div>
         <Pagina>
-          <div>{number}</div>
-          <button onClick={adds}>Adicionar</button>
-          <br />
-          <button onClick={diminuir}>Diminuir</button>
+          <div className="flex flex-col justify-center items-center">
+            {/* <div>{number}</div>
+            <button onClick={adds}>Adicionar</button>
+            <br />
+            <button onClick={diminuir}>Diminuir</button> */}
 
-          {/* <div className="flex gap-5 justify-center flex-wrap"> */}
-          {/* {items.map((items) => { */}
-          {/* return ( */}
-          <ProductCard
-            nome={items.nome}
-            descricao={items.descricao}
-            preco={items.preco}
-            imagem={items.imagem}
-          />
-          {/* ) */}
-          {/* })} */}
-          {/* </div> */}
+            <h1 style={{ fontSize: '30px' }}>CARRINHO DE COMPRAS</h1>
+            <br />
+            <br />
+
+            <div className="flex gap-5 justify-center flex-wrap">
+              {items.map((dados) => {
+                return (
+                  <>
+                    <ProductCard
+                      nome={dados.nome}
+                      descricao={dados.descricao}
+                      preco={dados.preco}
+                      imagem={dados.imagem}
+                    />
+                  </>
+                )
+              })}
+            </div>
+          </div>
         </Pagina>
       </div>
     </>
