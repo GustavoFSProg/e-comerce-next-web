@@ -16,7 +16,7 @@ export function Pagina(props) {
         <main
           className={`flex-1 w-[1200px] mx-auto h-100 bg-zinc-900 text-white ${
             props.className ?? ''
-          } py-10 `}
+          } py-10 px-5`}
         >
           {props.children}
         </main>
