@@ -54,6 +54,7 @@ export default function ProductCardCarrinho(props) {
       })
       .filter((i) => i.quantidade > 0);
     alterarItens(novosItens);
+    setNumber(number - 1)
   }
 
   function alterarItens(novosItens) {
