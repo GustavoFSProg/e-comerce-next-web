@@ -1,34 +1,35 @@
-import { CartContext } from '@/data/contexts/CartContext'
-import useLocalStorage from '@/data/hooks/useLocalStorage'
-import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { CartContext } from "@/data/contexts/CartContext";
+import useLocalStorage from "@/data/hooks/useLocalStorage";
+import { IconMinus, IconPlus } from "@tabler/icons-react";
+import Image from "next/image";
+import { useContext, useState } from "react";
 
 // export interface CartaoProdutoProps {
 //   produto: Produto;
 // }
 
 export default function ProductCardCarrinho(props) {
-  const { items, setItems, setNumber, number, setQuantity, quantity } = useContext(CartContext)
-  const { id, nome, descricao, preco, imagem } = props
-  const produto = { nome, descricao, preco, imagem }
-  const { set, get } = useLocalStorage()
-  const [qtd, setQtd] = useState(1)
-
+  const { items, setItems, setNumber, number, setQuantity, quantity } =
+    useContext(CartContext);
+  const { id, nome, descricao, preco, imagem } = props;
+  const produto = { nome, descricao, preco, imagem };
+  const { set, get } = useLocalStorage();
+  const [qtd, setQtd] = useState(1);
 
   function adicionar(props) {
-    const indice = items.findIndex((i) => i.id === props.id)
+    const indice = items.findIndex((i) => i.id === props.id);
 
     if (indice === -1) {
-      setItems([...items, { id, nome, descricao, preco, imagem }])
+      setItems([...items, { id, nome, descricao, preco, imagem }]);
 
-      setNumber(number + 1)
+      setNumber(number + 1);
     } else {
-      setItems([...items])
+      setItems([...items]);
 
-      setQuantity(quantity + 1)
+      setQuantity(quantity + 1);
     }
 
-    return console.log(items)
+    return console.log(items);
   }
 
   // function adicionar(props) {
@@ -57,49 +58,70 @@ export default function ProductCardCarrinho(props) {
         <h2 className="text-xl font-bold"> {nome} </h2>
         <p className="flex-1 text-sm text-zinc-400"> {descricao} </p>
         <div className="flex justify-between  items-center">
-        <div className="flex justify-between flex-col ">
-       
-        <span className="text-lg font-semibold mt-2">UNIDADE:
-            R$ {preco} </span>
-        <span className="text-lg font-semibold mt-2">TOTAL: 
-          
-           R$ {preco * qtd} </span>
-          {/* <button
+          <div className="flex justify-between flex-col ">
+            <span className="text-lg font-semibold mt-2">
+              UNIDADE: R$ {preco}{" "}
+            </span>
+            <span className="text-lg font-semibold mt-2">
+              TOTAL: R$ {preco * qtd}{" "}
+            </span>
+            {/* <button
             onClick={() => adicionar(props.produto)}
             className="border rounded-full px-5 py-1 text-sm"
           >
             Adicionar
           </button> */}
-           
-          <button
-          style={{marginLeft: '137px', marginTop: '15px'}}
-            className="border rounded-full px-5 py-1 text-sm"
-            // onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
-          >
-            Remover
-          </button>
-          {/* <button onClick={diminuir}>Diminuir</button> */}
-        </div>
+        <div className="flex  justify-center  items-center">
+        <div className="flex flex-row w-80 bg-gray justify-between items-center mt-6">
+            {/* <div className="flex flex-row w-100 bg-gray justify-center items-center"> */}
+
+            <div
+             className="flex justify-center items-center"
+            >
+              <button
+                style={{ fontSize: "26px", marginRight: "14px" }}
+                onClick={() => setQtd(qtd - 1)}
+              >
+                {" "}
+                <IconMinus />{" "}
+              </button>
+              <span
+                style={{
+                  display: "flex",
+                  background: "#172438",
+                  width: "27px",
+                  padding: "2px",
+                  justifyContent: "center",
+                }}
+              >
+                {qtd}
+              </span>
+
+              <button
+                style={{ fontSize: "26px", marginLeft: "14px" }}
+                onClick={() => setQtd(qtd + 1)}
+              >
+                {" "}
+                <IconPlus />{" "}
+              </button>
+            </div>
+            </div>
+
+            <button
+              style={{marginTop: '22px', marginLeft: "-177px", height: '35px',  }}
+              className="border rounded-full px-5 py-1 text-sm"
+              // onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
+            >
+              Remover
+            </button>
+            {/* <button onClick={diminuir}>Diminuir</button> */}
+          </div>
         </div>
         <div>
-
-       
-          <div className="flex flex-row w-80 bg-gray justify-between">
-          <div className="flex flex-row text-lg w-100 bg-gray justify-between">
-
-          <button  style={{fontSize: '26px', marginRight: '15px'}} onClick={() => setQtd(qtd - 1)}> - </button>
-          <button style={{fontSize: '26px', marginRight: '15px'}} onClick={() => setQtd(qtd + 1)}> +  </button>
-          </div>
-          <div className="flex flex-row w-100 bg-gray justify-between">
-
-          <p>Quantidade: {qtd}</p>
-          </div>
-          <div className="flex flex-row w-100 bg-gray justify-between">
-
-          </div>
+         
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
