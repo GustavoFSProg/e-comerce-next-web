@@ -56,8 +56,14 @@ export default function ProductCardCarrinho(props) {
       <div className="flex-1 flex flex-col gap-4 p-5">
         <h2 className="text-xl font-bold"> {nome} </h2>
         <p className="flex-1 text-sm text-zinc-400"> {descricao} </p>
-        <div className="flex justify-between items-center">
-          <span className="text-lg font-semibold mt-2"> R$ {preco} </span>
+        <div className="flex justify-between  items-center">
+        <div className="flex justify-between flex-col ">
+       
+        <span className="text-lg font-semibold mt-2">UNIDADE:
+            R$ {preco} </span>
+        <span className="text-lg font-semibold mt-2">TOTAL: 
+          
+           R$ {preco * qtd} </span>
           {/* <button
             onClick={() => adicionar(props.produto)}
             className="border rounded-full px-5 py-1 text-sm"
@@ -66,12 +72,14 @@ export default function ProductCardCarrinho(props) {
           </button> */}
            
           <button
+          style={{marginLeft: '137px', marginTop: '15px'}}
             className="border rounded-full px-5 py-1 text-sm"
             // onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
           >
             Remover
           </button>
           {/* <button onClick={diminuir}>Diminuir</button> */}
+        </div>
         </div>
         <div>
 
