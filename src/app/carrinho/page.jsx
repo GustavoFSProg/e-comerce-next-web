@@ -5,6 +5,7 @@ import { Pagina } from '../../components/template/Pagina'
 import { CartContext, CartContextProvider } from '@/data/contexts/CartContext'
 import ProductCard from '@/components/produto/ProductCardCarrinho'
 import ProductCardCarrinho from '@/components/produto/ProductCardCarrinho'
+import TotalCarrinho from '@/components/carrinho/TotalCarrinho'
 
 export default function Carrinho() {
   const { number, adds, diminuir, items } = useContext(CartContext)
@@ -61,6 +62,7 @@ export default function Carrinho() {
                   </>
                 )
               })}
+              <TotalCarrinho itens={items} />
             </div>
           </div> 
         </Pagina>
