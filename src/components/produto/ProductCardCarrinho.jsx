@@ -7,11 +7,13 @@ import { useContext, useState } from 'react'
 //   produto: Produto;
 // }
 
-export default function ProductCard(props) {
+export default function ProductCardCarrinho(props) {
   const { items, setItems, setNumber, number, setQuantity, quantity } = useContext(CartContext)
   const { id, nome, descricao, preco, imagem } = props
   const produto = { nome, descricao, preco, imagem }
   const { set, get } = useLocalStorage()
+  const [qtd, setQtd] = useState(1)
+
 
   function adicionar(props) {
     const indice = items.findIndex((i) => i.id === props.id)
@@ -62,13 +64,32 @@ export default function ProductCard(props) {
           >
             Adicionar
           </button> */}
+           
           <button
             className="border rounded-full px-5 py-1 text-sm"
-            onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
+            // onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
           >
-            Adicionar
+            Remover
           </button>
           {/* <button onClick={diminuir}>Diminuir</button> */}
+        </div>
+        <div>
+
+       
+          <div className="flex flex-row w-80 bg-gray justify-between">
+          <div className="flex flex-row text-lg w-100 bg-gray justify-between">
+
+          <button  style={{fontSize: '26px', marginRight: '15px'}} onClick={() => setQtd(qtd - 1)}> - </button>
+          <button style={{fontSize: '26px', marginRight: '15px'}} onClick={() => setQtd(qtd + 1)}> +  </button>
+          </div>
+          <div className="flex flex-row w-100 bg-gray justify-between">
+
+          <p>Quantidade: {qtd}</p>
+          </div>
+          <div className="flex flex-row w-100 bg-gray justify-between">
+
+          </div>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,8 @@
 import { useContext, useEffect, useState } from 'react'
 import { Pagina } from '../../components/template/Pagina'
 import { CartContext, CartContextProvider } from '@/data/contexts/CartContext'
-import ProductCard from '@/components/produto/ProductCard'
+import ProductCard from '@/components/produto/ProductCardCarrinho'
+import ProductCardCarrinho from '@/components/produto/ProductCardCarrinho'
 
 export default function Carrinho() {
   const { number, adds, adicionar, diminuir, items } = useContext(CartContext)
@@ -39,12 +40,13 @@ export default function Carrinho() {
               {items.map((dados) => {
                 return (
                   <>
-                    <ProductCard
+                    <ProductCardCarrinho
                       nome={dados.nome}
                       descricao={dados.descricao}
                       preco={dados.preco}
                       imagem={dados.imagem}
                     />
+                  
                   </>
                 )
               })}

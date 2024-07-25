@@ -47,6 +47,7 @@ export const produtos: Products[] = [
         name: 'Bateria Celular',
         preco: 750,
         descricao: 'Litio',
+        quantity: 0,
         imagem:
             'https://images.unsplash.com/photo-1524293772845-840102eccb82?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
