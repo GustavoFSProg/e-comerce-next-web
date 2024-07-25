@@ -32,22 +32,22 @@ export default function ProductCardCarrinho(props) {
     return console.log(items);
   }
 
-  // function adicionar(props) {
-  //   const indice = items.findIndex((i) => i.props.id === props.id)
+  function remover(produto) {
+    const novosItens = items
+        .map((i) => {
+            if (i.id === produto.id) {
+                i.quantidade--
+            }
+            return i
+        })
+        .filter((i) => i.quantidade > 0)
+    alterarItens(novosItens)
+}
 
-  //   if (indice === -1) {
-  //     alterarItens([...items, { props, quantidade: 1 }])
-  //   } else {
-  //     const novosItens = [...items]
-  //     novosItens[indice].quantidade++
-  //     alterarItens(novosItens)
-  //   }
-  // }
-
-  // function alterarItens(novosItens) {
-  //   setItems(novosItens)
-  //   set('carrinho', novosItens)
-  // }
+function alterarItens(novosItens) {
+    setItems(novosItens)
+    // set('carrinho', novosItens)
+}
 
   return (
     <div className="flex flex-col w-72 bg-zinc-950">
@@ -110,7 +110,7 @@ export default function ProductCardCarrinho(props) {
             <button
               style={{marginTop: '22px', marginLeft: "-177px", height: '35px',  }}
               className="border rounded-full px-5 py-1 text-sm"
-              // onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
+              onClick={() => remover({ id, nome, descricao, preco, imagem })}
             >
               Remover
             </button>

@@ -13,8 +13,8 @@ export default function Carrinho() {
   console.log(` IOtems carrrinho: ${items}`)
 
   function GetDataProducts() {
-    setData(items)
-    console.log(`items: ${items}`)
+    setData(items.props)
+    console.log(`items: ${items.props}`)
 
     return console.log(`data: ${data}`)
   }

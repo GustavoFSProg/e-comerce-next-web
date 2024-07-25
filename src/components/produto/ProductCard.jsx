@@ -17,7 +17,7 @@ export default function ProductCard(props) {
     const indice = items.findIndex((i) => i.id === props.id)
 
     if (indice === -1) {
-      setItems([...items, { id, nome, descricao, preco, imagem }])
+      setItems([...items, {id, nome, descricao, preco, imagem }])
 
       setNumber(number + 1)
     } else {
