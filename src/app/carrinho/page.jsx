@@ -7,23 +7,30 @@ import ProductCard from '@/components/produto/ProductCardCarrinho'
 import ProductCardCarrinho from '@/components/produto/ProductCardCarrinho'
 
 export default function Carrinho() {
-  const { number, adds, adicionar, diminuir, items } = useContext(CartContext)
+  const { number, adds, diminuir, items } = useContext(CartContext)
   const [data, setData] = useState([])
 
-  console.log(` IOtems carrrinho: ${items}`)
+  console.log(` IOtems carrrinho: ${items.produto}`)
+
 
   function GetDataProducts() {
-    setData(items)
+    setData(items.produto)
     console.log(`items: ${items}`)
 
     return console.log(`data: ${data}`)
   }
 
+
+  
+
   useEffect(() => {
     GetDataProducts()
-  }, [])
+  }, [items])
+
+
   return (
     <>
+
       <div>
         <Pagina>
           <div className="flex flex-col justify-center items-center">
@@ -45,15 +52,20 @@ export default function Carrinho() {
                       descricao={dados.descricao}
                       preco={dados.preco}
                       imagem={dados.imagem}
+                      item={dados}
+                      // remover={(dados) => removeres(dados.produto)}
+
+
                     />
-                  
+                
                   </>
                 )
               })}
             </div>
-          </div>
+          </div> 
         </Pagina>
       </div>
+
     </>
   )
 }
