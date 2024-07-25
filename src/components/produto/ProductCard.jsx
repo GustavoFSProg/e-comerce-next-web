@@ -13,11 +13,11 @@ export default function ProductCard(props) {
   const produto = { nome, descricao, preco, imagem }
   const { set, get } = useLocalStorage()
 
-  function adicionar(props) {
-    const indice = items.findIndex((i) => i.id === props.id)
+  function adicionar(produto) {
+    const indice = items.findIndex((i) => i.produto.id === produto.id)
 
     if (indice === -1) {
-      setItems([...items, {id, nome, descricao, preco, imagem }])
+      setItems([...items, {produto, quantidade: 1 }])
 
       setNumber(number + 1)
     } else {
@@ -64,7 +64,7 @@ export default function ProductCard(props) {
           </button> */}
           <button
             className="border rounded-full px-5 py-1 text-sm"
-            onClick={() => adicionar({ id, nome, descricao, preco, imagem })}
+            onClick={() => adicionar({id, nome, descricao, preco, imagem})}
           >
             Adicionar
           </button>

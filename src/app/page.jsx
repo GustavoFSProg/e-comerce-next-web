@@ -37,6 +37,7 @@ export default function Home() {
                 preco={items.preco}
                 imagem={items.imagem}
                 id={items.id}
+                adicionar={(item => adcionar(item.produto))}
               />
             )
           })}
