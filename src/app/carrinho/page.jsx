@@ -30,14 +30,12 @@ export default function Carrinho() {
       <div>
         <Pagina>
           <div className="flex flex-col justify-center items-center">
-            {/* <div>{number}</div>
-            <button onClick={adds}>Adicionar</button>
-            <br />
-            <button onClick={diminuir}>Diminuir</button> */}
+           
 
             <h1 style={{ fontSize: "30px" }}>CARRINHO DE COMPRAS</h1>
             <br />
             <br />
+
 
             {items.length === 0 ? (
               <CarrinhoVazio />
@@ -57,10 +55,11 @@ export default function Carrinho() {
                     </>
                   );
                 })}
-                <TotalCarrinho itens={items} />
               </div>
-            )}
+                
+              )}
           </div>
+              <TotalCarrinho itens={items} />
         </Pagina>
       </div>
     </>
