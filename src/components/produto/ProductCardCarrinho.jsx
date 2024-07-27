@@ -68,6 +68,13 @@ export default function ProductCardCarrinho(props) {
 
   // }, [subtotal])
 
+
+  function numberToReal(numero) {
+    var numero = numero.toFixed(2).split('.');
+    numero[0] =  numero[0].split(/(?=(?:...)*$)/).join('.');
+    return numero.join(',');
+}
+
   return (
     <div className="flex flex-col w-72 bg-zinc-950">
       <div className="relative w-72 h-52">
@@ -86,13 +93,14 @@ export default function ProductCardCarrinho(props) {
         </p>
         <div className="flex justify-between  items-center">
           <div className="flex justify-between flex-col ">
-            <span className="text-lg font-semibold mt-2">
-              UNIDADE: R$ {props.item.produto.preco}{" "}
+            <span style={{marginLeft: '7px'}} className="text-lg font-semibold mt-2">
+
+              UNIDADE: R$ {numberToReal(props.item.produto.preco)}
             </span>
             <span className="text-lg font-semibold mt-2">
               TOTAL: R$
               <span style={{marginLeft: '7px'}}>
-              {props.item.produto.preco * props.item.produto.quantidade.toFixed(2)}
+              {numberToReal(props.item.produto.preco * props.item.produto.quantidade.toFixed(2))}
 
               </span>
 

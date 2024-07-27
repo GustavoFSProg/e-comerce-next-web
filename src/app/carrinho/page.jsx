@@ -21,6 +21,8 @@ export default function Carrinho() {
     return console.log(`data: ${data}`);
   }
 
+  
+
   useEffect(() => {
     GetDataProducts();
   }, [items]);
