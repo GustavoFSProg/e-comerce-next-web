@@ -92,10 +92,10 @@ export default function ProductCardCarrinho(props) {
           {props.item.produto.descricao}{" "}
         </p>
         <div className="flex justify-between  items-center">
-          <div className="flex justify-between flex-col ">
-            <span style={{marginLeft: '7px'}} className="text-lg font-semibold mt-2">
+          <div className="flex justify-between  items-left left-0 flex-col ">
+            <span style={{marginLeft: '0px'}} className="text-lg font-semibold mt-2">
 
-              UNIDADE: R$ {numberToReal(props.item.produto.preco)}
+              PREÇO: R$ {numberToReal(props.item.produto.preco)}
             </span>
             <span className="text-lg font-semibold mt-2">
               TOTAL: R$
@@ -103,22 +103,17 @@ export default function ProductCardCarrinho(props) {
               {numberToReal(props.item.produto.subtotal = props.item.produto.preco * props.item.produto.quantidade.toFixed(2))}
 
               </span>
-              <span className="text-lg font-semibold mt-2">
+              {/* <span className="text-lg font-semibold mt-2">
               SUB: R$
               <span style={{marginLeft: '7px'}}>
               {numberToReal(props.item.produto.subtotal)}
 
               </span>
-              </span>
+              </span> */}
 {/* 
               {/* {`Quantidade: ${props.item.produto.quantidade}`} */}
             </span>
-            {/* <button
-            onClick={() => adicionar(props.produto)}
-            className="border rounded-full px-5 py-1 text-sm"
-          >
-            Adicionar
-          </button> */}
+         
             <div className="flex  justify-center  items-center">
               <div className="flex flex-row w-80 bg-gray justify-between items-center mt-6">
                 {/* <div className="flex flex-row w-100 bg-gray justify-center items-center"> */}

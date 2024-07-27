@@ -17,10 +17,10 @@ export default function TotalCarrinho(props) {
         return numero.join(',');
     }
     
-    useEffect(() => {
-        getTotal()
+    // useEffect(() => {
+    //     getTotal()
 
-        }, [total])
+    //     }, [total])
 
 
 
