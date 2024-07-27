@@ -57,7 +57,7 @@ export default function ProductCard(props) {
           </button> */}
           <button
             className="border rounded-full px-5 py-1 text-sm"
-            onClick={() => adicionar({id, nome, quantidade: 1, descricao, preco, imagem})}
+            onClick={() => adicionar({id, nome, quantidade: 1, subtotal: 0, descricao, preco, imagem})}
           >
             Adicionar
           </button>

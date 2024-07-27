@@ -100,15 +100,17 @@ export default function ProductCardCarrinho(props) {
             <span className="text-lg font-semibold mt-2">
               TOTAL: R$
               <span style={{marginLeft: '7px'}}>
-              {numberToReal(props.item.produto.preco * props.item.produto.quantidade.toFixed(2))}
+              {numberToReal(props.item.produto.subtotal = props.item.produto.preco * props.item.produto.quantidade.toFixed(2))}
 
               </span>
+              <span className="text-lg font-semibold mt-2">
+              SUB: R$
+              <span style={{marginLeft: '7px'}}>
+              {numberToReal(props.item.produto.subtotal)}
 
-              <p style={{color: 'black'}}>
-
-              {(props.item.produto.quantidade = qtd)}
-              </p>
-            
+              </span>
+              </span>
+{/* 
               {/* {`Quantidade: ${props.item.produto.quantidade}`} */}
             </span>
             {/* <button
@@ -138,7 +140,7 @@ export default function ProductCardCarrinho(props) {
                       justifyContent: "center",
                     }}
                   >
-                    {props.item.produto.quantidade}
+                    {props.item.produto.quantidade =qtd}
                   </span>
 
                   <button
@@ -161,7 +163,6 @@ export default function ProductCardCarrinho(props) {
               >
                 Remover
               </button>
-              {/* <button onClick={diminuir}>Diminuir</button> */}
             </div>
           </div>
           <div></div>

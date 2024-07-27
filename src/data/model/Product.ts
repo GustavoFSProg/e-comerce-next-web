@@ -5,5 +5,6 @@ export default interface Products {
     descricao: string
     imagem: string
     quantity: number
+    subtotal: number
 
 }
