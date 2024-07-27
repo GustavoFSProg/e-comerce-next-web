@@ -29,22 +29,6 @@ export default function ProductCard(props) {
     return console.log(items)
   }
 
-  // function adicionar(props) {
-  //   const indice = items.findIndex((i) => i.props.id === props.id)
-
-  //   if (indice === -1) {
-  //     alterarItens([...items, { props, quantidade: 1 }])
-  //   } else {
-  //     const novosItens = [...items]
-  //     novosItens[indice].quantidade++
-  //     alterarItens(novosItens)
-  //   }
-  // }
-
-  // function alterarItens(novosItens) {
-  //   setItems(novosItens)
-  //   set('carrinho', novosItens)
-  // }
 
   return (
     <div className="flex flex-col w-72 bg-zinc-950">
@@ -64,7 +48,7 @@ export default function ProductCard(props) {
           </button> */}
           <button
             className="border rounded-full px-5 py-1 text-sm"
-            onClick={() => adicionar({id, nome, descricao, preco, imagem})}
+            onClick={() => adicionar({id, nome, quantidade: 1, descricao, preco, imagem})}
           >
             Adicionar
           </button>

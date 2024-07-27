@@ -11,10 +11,11 @@ import { useContext, useEffect, useState } from "react";
 export default function ProductCardCarrinho(props) {
   const { items, setItems, setNumber, number, setQuantity, quantity } =
     useContext(CartContext);
-  const { id, nome, descricao, preco, imagem } = props;
+  const { id, nome, descricao, preco, quantidade, imagem } = props;
   const produto = { nome, descricao, preco, imagem };
   const { set, get } = useLocalStorage();
   const [qtd, setQtd] = useState(1);
+  const [subtotal, setSubtotal] = useState(0);
 
   function adicionar(props) {
     const indice = items.findIndex((i) => i.id === props.id);
@@ -54,7 +55,7 @@ export default function ProductCardCarrinho(props) {
       })
       .filter((i) => i.quantidade > 0);
     alterarItens(novosItens);
-    setNumber(number - 1)
+    setNumber(number - 1);
   }
 
   function alterarItens(novosItens) {
@@ -63,6 +64,9 @@ export default function ProductCardCarrinho(props) {
   }
   console.log(items);
 
+  // useEffect(() => {
+
+  // }, [subtotal])
 
   return (
     <div className="flex flex-col w-72 bg-zinc-950">
@@ -86,7 +90,18 @@ export default function ProductCardCarrinho(props) {
               UNIDADE: R$ {props.item.produto.preco}{" "}
             </span>
             <span className="text-lg font-semibold mt-2">
-              TOTAL: R$ {props.item.produto.preco * qtd}{" "}
+              TOTAL: R$
+              <span style={{marginLeft: '7px'}}>
+              {props.item.produto.preco * props.item.produto.quantidade.toFixed(2)}
+
+              </span>
+
+              <p style={{color: 'black'}}>
+
+              {(props.item.produto.quantidade = qtd)}
+              </p>
+            
+              {/* {`Quantidade: ${props.item.produto.quantidade}`} */}
             </span>
             {/* <button
             onClick={() => adicionar(props.produto)}
@@ -115,7 +130,7 @@ export default function ProductCardCarrinho(props) {
                       justifyContent: "center",
                     }}
                   >
-                    {qtd}
+                    {props.item.produto.quantidade}
                   </span>
 
                   <button
