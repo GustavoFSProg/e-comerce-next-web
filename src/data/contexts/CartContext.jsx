@@ -1,6 +1,7 @@
 'use client'
 
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export const CartContext = createContext(0)
 
@@ -8,6 +9,8 @@ export function CartContextProvider(props) {
   const [items, setItems] = useState([])
   const [number, setNumber] = useState(0)
   const [quantity, setQuantity] = useState(1)
+  const { set, get } = useLocalStorage()
+
 
   function adds() {
     setNumber(number + 1)
@@ -16,6 +19,14 @@ export function CartContextProvider(props) {
   function diminuir() {
     setNumber(number - 1)
   }
+
+
+  useEffect(() => {
+    const carrinho = get('carrinho')
+    if (carrinho) {
+        setItems(carrinho)
+    }
+}, [get])
 
   // const { set, get } = useLocalStorage()
 

@@ -20,14 +20,18 @@ export default function ProductCard(props) {
       setItems([...items, {produto, quantidade: 1 }])
 
       setNumber(number + 1)
+      
     } else {
       setItems([...items])
-
+      
       setQuantity(quantity + 1)
     }
+    // set('carrinho', items)
 
     return console.log(items)
   }
+
+
 
   function numberToReal(numero) {
     var numero = numero.toFixed(0).split('.');
