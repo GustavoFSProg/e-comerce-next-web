@@ -13,25 +13,54 @@ export default function ProductCard(props) {
   const produto = { nome, descricao, preco, imagem }
   const { set, get } = useLocalStorage()
 
+  // function adicionar(produto) {
+  //   const indice = items.findIndex((i) => i.produto.id === produto.id)
+
+  //   if (indice === -1) {
+  //     setItems([...items, {produto, quantidade: 1 }])
+
+  //     setNumber(number + 1)
+      
+  //   } else {
+  //     setItems([...items])
+      
+  //     setQuantity(quantity + 1)
+
+  //     alterarItens(items)
+  //   }
+  //   set('carrinho', items)
+
+  //   return console.log(items)
+  // }
+
   function adicionar(produto) {
     const indice = items.findIndex((i) => i.produto.id === produto.id)
 
-    if (indice === -1) {
-      setItems([...items, {produto, quantidade: 1 }])
 
-      setNumber(number + 1)
-      
-    } else {
-      setItems([...items])
-      
-      setQuantity(quantity + 1)
-    }
-    // set('carrinho', items)
+  if (indice === -1) {
+    alterarItens([...items, { produto, quantidade: 1 }])
+    setNumber(number + 1)
 
-    return console.log(items)
+    console.log(number)
+
+    set('number', number)
+} else {
+    const novosItens = [...items]
+    setQuantity(quantity + 1)
+    setNumber(number + 1)
+
+
+    // novosItens[indice].quantidade++
+    alterarItens(novosItens)
+}
+
+return console.log(items)
   }
 
-
+  function alterarItens(novosItens) {
+    setItems(novosItens)
+    set('carrinho', novosItens)
+}
 
   function numberToReal(numero) {
     var numero = numero.toFixed(0).split('.');

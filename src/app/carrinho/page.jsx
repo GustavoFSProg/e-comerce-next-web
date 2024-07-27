@@ -1,65 +1,34 @@
-"use client";
+'use client'
 
-import { useContext, useEffect, useState } from "react";
-import { Pagina } from "../../components/template/Pagina";
-import { CartContext, CartContextProvider } from "@/data/contexts/CartContext";
-import ProductCard from "@/components/produto/ProductCardCarrinho";
-import ProductCardCarrinho from "@/components/produto/ProductCardCarrinho";
-import TotalCarrinho from "@/components/carrinho/TotalCarrinho";
-import CarrinhoVazio from "@/components/carrinho/CarrinhoVazio";
+import Link from 'next/link'
+import { Logo } from './Logo'
+import { IconShoppingCart } from '@tabler/icons-react'
+import { useContext } from 'react'
+import { CartContext } from '@/data/contexts/CartContext'
+import useLocalStorage from '@/data/hooks/useLocalStorage'
 
-export default function Carrinho() {
-  const { number, adds, diminuir, items } = useContext(CartContext);
-  const [data, setData] = useState([]);
+// import { PaginaProps } from './Interface'
 
-  console.log(` IOtems carrrinho: ${items.produto}`);
+export function Carrinho() {
+  const { number, setNumber } = useContext(CartContext)
+  const { set, get } = useLocalStorage()
 
-  function GetDataProducts() {
-    setData(items.produto);
-    console.log(`items: ${items}`);
-
-    return console.log(`data: ${data}`);
-  }
-
-  
-
-  useEffect(() => {
-    GetDataProducts();
-  }, [items]);
-
+  // const  newNumber = get('number')
+  //  setNumber(newNumber)
   return (
-    <>
-      <div>
-        <Pagina>
-          <div className="flex flex-col justify-center items-center">
-            <h1 style={{ fontSize: "30px" }}>CARRINHO DE COMPRAS</h1>
-            <br />
-            <br />
-
-            {items.length === 0 ? (
-              <CarrinhoVazio />
-            ) : (
-              <div className="flex gap-5 justify-center flex-wrap">
-                {items.map((dados) => {
-                  return (
-                    <div key={dados.id}>
-                      <ProductCardCarrinho
-                        nome={dados.nome}
-                        descricao={dados.descricao}
-                        preco={dados.preco}
-                        imagem={dados.imagem}
-                        item={dados}
-                        // remover={(dados) => removeres(dados.produto)}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-          <TotalCarrinho itens={items} />
-        </Pagina>
+    <Link href="/carrinho">
+      <div className="flex items-center relative mr-2">
+        <IconShoppingCart size={32} stroke={1} />
+        <div
+          className="
+        flex justify-center items-center
+        text-xs
+        font-bold
+        absolute w-6 p-px  h-6 -top-2.5 ml-4 w-6 h-6 bg-red-600 rounded-full"
+        >
+          {number}
+        </div>
       </div>
-    </>
-  );
+    </Link>
+  )
 }
