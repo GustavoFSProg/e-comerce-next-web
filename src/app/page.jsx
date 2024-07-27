@@ -31,6 +31,8 @@ export default function Home() {
         <div className="flex gap-5 justify-center flex-wrap">
           {data.map((items) => {
             return (
+              <div key={items.id}>
+
               <ProductCard
                 nome={items.name}
                 descricao={items.descricao}
@@ -38,7 +40,8 @@ export default function Home() {
                 imagem={items.imagem}
                 id={items.id}
                 adicionar={(item => adcionar(item.produto))}
-              />
+                />
+                </div>
             )
           })}
         </div>

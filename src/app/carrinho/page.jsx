@@ -42,7 +42,7 @@ export default function Carrinho() {
               <div className="flex gap-5 justify-center flex-wrap">
                 {items.map((dados) => {
                   return (
-                    <>
+                    <div key={dados.id}>
                       <ProductCardCarrinho
                         nome={dados.nome}
                         descricao={dados.descricao}
@@ -51,7 +51,7 @@ export default function Carrinho() {
                         item={dados}
                         // remover={(dados) => removeres(dados.produto)}
                       />
-                    </>
+                    </div>
                   );
                 })}
               </div>
