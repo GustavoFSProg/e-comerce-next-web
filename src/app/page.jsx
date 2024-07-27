@@ -24,9 +24,9 @@ export default function Home() {
 
   return (
     <Pagina>
-      Bom dia!
+      <h1 style={{fontSize: '27px', paddingLeft: '25px'}}>
+        Loja Virtual de Produtos Eletrônicos</h1>
       <br />
-      {number}
       <main className="flex  flex-col items-center justify-between p-24">
         <div className="flex gap-5 justify-center flex-wrap">
           {data.map((items) => {
