@@ -33,17 +33,17 @@ export default function ProductCardCarrinho(props) {
     return console.log(items);
   }
 
-  function remover(produto) {
-    const novosItens = items
-      .map((i) => {
-        if (i.id === produto.id) {
-          i.quantidade--;
-        }
-        return i;
-      })
-      .filter((i) => i.quantidade > 0);
-    alterarItens(novosItens);
-  }
+  // function remover(produto) {
+  //   const novosItens = items
+  //     .map((i) => {
+  //       if (i.id === produto.id) {
+  //         i.quantidade--;
+  //       }
+  //       return i;
+  //     })
+  //     .filter((i) => i.quantidade > 0);
+  //   alterarItens(novosItens);
+  // }
 
   function remover(produto) {
     const novosItens = items
@@ -60,7 +60,7 @@ export default function ProductCardCarrinho(props) {
 
   function alterarItens(novosItens) {
     setItems(novosItens);
-    // set('carrinho', novosItens)
+    set('carrinho', novosItens)
   }
   console.log(items);
 

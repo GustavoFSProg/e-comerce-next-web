@@ -1,44 +1,70 @@
-import { CartContext } from '@/data/contexts/CartContext'
-import useLocalStorage from '@/data/hooks/useLocalStorage'
-import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { CartContext } from "@/data/contexts/CartContext";
+import useLocalStorage from "@/data/hooks/useLocalStorage";
+import Image from "next/image";
+import { useContext, useState } from "react";
 
 // export interface CartaoProdutoProps {
 //   produto: Produto;
 // }
 
 export default function ProductCard(props) {
-  const { items, setItems, setNumber, number, setQuantity, quantity } = useContext(CartContext)
-  const { id, nome, descricao, preco, imagem } = props
-  const produto = { nome, descricao, preco, imagem }
-  const { set, get } = useLocalStorage()
+  const { items, setItems, setNumber, number, setQuantity, quantity } =
+    useContext(CartContext);
+  const { id, nome, descricao, preco, imagem } = props;
+  const produto = { nome, descricao, preco, imagem };
+  const { set, get } = useLocalStorage();
+
+  // function adicionar(produto) {
+  //   const indice = items.findIndex((i) => i.produto.id === produto.id)
+
+  //   if (indice === -1) {
+  //     setItems([...items, {produto, quantidade: 1 }])
+
+  //     setNumber(number + 1)
+
+  //   } else {
+  //     setItems([...items])
+
+  //     setQuantity(quantity + 1)
+
+  //     alterarItens(items)
+  //   }
+  //   set('carrinho', items)
+
+  //   return console.log(items)
+  // }
 
   function adicionar(produto) {
-    const indice = items.findIndex((i) => i.produto.id === produto.id)
+    const indice = items.findIndex((i) => i.produto.id === produto.id);
 
     if (indice === -1) {
-      setItems([...items, {produto, quantidade: 1 }])
+      alterarItens([...items, { produto, quantidade: 1 }]);
+      setNumber(number + 1);
 
-      setNumber(number + 1)
-      
+      console.log(number);
+
+      set("number", number);
     } else {
-      setItems([...items])
-      
-      setQuantity(quantity + 1)
-    }
-    // set('carrinho', items)
+      const novosItens = [...items];
+      setQuantity(quantity + 1);
 
-    return console.log(items)
+      // novosItens[indice].quantidade++
+      alterarItens(novosItens);
+    }
+
+    return console.log(items);
   }
 
-
+  function alterarItens(novosItens) {
+    setItems(novosItens);
+    set("carrinho", novosItens);
+  }
 
   function numberToReal(numero) {
-    var numero = numero.toFixed(0).split('.');
-    numero[0] =  numero[0].split(/(?=(?:...)*$)/).join('.');
-    return numero.join(',');
-}
-
+    var numero = numero.toFixed(0).split(".");
+    numero[0] = numero[0].split(/(?=(?:...)*$)/).join(".");
+    return numero.join(",");
+  }
 
   return (
     <div className="flex flex-col w-72 bg-zinc-950">
@@ -49,10 +75,10 @@ export default function ProductCard(props) {
         <h2 className="text-xl font-bold"> {nome} </h2>
         <p className="flex-1 text-sm text-zinc-400"> {descricao} </p>
         <div className="flex justify-between items-center">
-          <span className="text-lg font-semibold mt-2">R$
-            <span style={{marginLeft: '5px'}}>
-               {numberToReal(preco)} </span>
-              </span>
+          <span className="text-lg font-semibold mt-2">
+            R$
+            <span style={{ marginLeft: "5px" }}>{numberToReal(preco)} </span>
+          </span>
           {/* <button
             onClick={() => adicionar(props.produto)}
             className="border rounded-full px-5 py-1 text-sm"
@@ -61,7 +87,17 @@ export default function ProductCard(props) {
           </button> */}
           <button
             className="border rounded-full px-5 py-1 text-sm"
-            onClick={() => adicionar({id, nome, quantidade: 1, subtotal: 0, descricao, preco, imagem})}
+            onClick={() =>
+              adicionar({
+                id,
+                nome,
+                quantidade: 1,
+                subtotal: 0,
+                descricao,
+                preco,
+                imagem,
+              })
+            }
           >
             Adicionar
           </button>
@@ -69,5 +105,5 @@ export default function ProductCard(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

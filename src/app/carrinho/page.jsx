@@ -9,7 +9,7 @@ import TotalCarrinho from "@/components/carrinho/TotalCarrinho";
 import CarrinhoVazio from "@/components/carrinho/CarrinhoVazio";
 
 export default function Carrinho() {
-  const { number, adds, diminuir, items } = useContext(CartContext);
+  const { number, adds, setNumber, items } = useContext(CartContext);
   const [data, setData] = useState([]);
 
   console.log(` IOtems carrrinho: ${items.produto}`);
@@ -20,6 +20,7 @@ export default function Carrinho() {
 
     return console.log(`data: ${data}`);
   }
+
 
   
 

@@ -5,11 +5,62 @@ import { Logo } from './Logo'
 import { IconShoppingCart } from '@tabler/icons-react'
 import { useContext } from 'react'
 import { CartContext } from '@/data/contexts/CartContext'
+import useLocalStorage from '@/data/hooks/useLocalStorage'
 
 // import { PaginaProps } from './Interface'
 
 export function Carrinho() {
-  const { number } = useContext(CartContext)
+  const { number, setNumber } = useContext(CartContext)
+  const { set, get } = useLocalStorage()
+
+  const cart = localStorage.getItem('carrinho')
+  // if(cart){
+    
+    
+//     let counter = 0;
+//     for (const obj of cart) {
+//       if (obj >= '0'){ counter++;}
+    
+      
+//     }
+//     console.log( `CART: ${cart.length}`)
+
+// }
+
+// if(cart){
+// cart.forEach(function(produto) {
+//   const counter = counter + 1
+// });
+// console.log(` Counter: ${counter}`)
+// }
+
+
+var sum = 0;
+
+for(var i =0;i < cart.produto;i++){
+   sum = sum + 1
+   setNumber(sum)
+  }
+  console.log(` Counter: ${sum}`)
+
+
+
+  // setNumber(cart.length)
+
+  // const soma = 0
+
+  // for(var i=0; i<=cart.length; i++){
+  //   const soma = soma + 1
+  //     setNumber(soma)
+  //     return number 
+  // }
+
+  // for (var i = 0; i < 9; i++) {
+  //   console.log(i);
+  //   // more statements
+  // }
+  // const  newNumber = get('number')
+  //  setNumber(newNumber)
   return (
     <Link href="/carrinho">
       <div className="flex items-center relative mr-2">
