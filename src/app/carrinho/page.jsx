@@ -7,21 +7,28 @@ import ProductCard from "@/components/produto/ProductCardCarrinho";
 import ProductCardCarrinho from "@/components/produto/ProductCardCarrinho";
 import TotalCarrinho from "@/components/carrinho/TotalCarrinho";
 import CarrinhoVazio from "@/components/carrinho/CarrinhoVazio";
+import useLocalStorage from "@/data/hooks/useLocalStorage";
 
 export default function Carrinho() {
-  const { number, adds, diminuir, items } = useContext(CartContext);
+  const { number, adds, setNumber, items } = useContext(CartContext);
   const [data, setData] = useState([]);
+
+  const { set, get } = useLocalStorage();
 
   console.log(` IOtems carrrinho: ${items.produto}`);
 
   function GetDataProducts() {
     setData(items.produto);
     console.log(`items: ${items}`);
+  
+
+
+    // const numero = get('number')
+
+    // setNumber(numero)
 
     return console.log(`data: ${data}`);
   }
-
-  
 
   useEffect(() => {
     GetDataProducts();
