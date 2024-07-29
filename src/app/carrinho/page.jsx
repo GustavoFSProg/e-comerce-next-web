@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Logo } from './Logo'
+// import { Logo } from './Logo'
 import { IconShoppingCart } from '@tabler/icons-react'
 import { useContext } from 'react'
 import { CartContext } from '@/data/contexts/CartContext'
