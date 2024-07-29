@@ -17,21 +17,21 @@ export default function ProductCardCarrinho(props) {
   const [qtd, setQtd] = useState(1);
   const [subtotal, setSubtotal] = useState(0);
 
-  function adicionar(props) {
-    const indice = items.findIndex((i) => i.id === props.id);
+  // function adicionar(props) {
+  //   const indice = items.findIndex((i) => i.id === props.id);
 
-    if (indice === -1) {
-      setItems([...items, { id, nome, descricao, preco, imagem }]);
+  //   if (indice === -1) {
+  //     setItems([...items, { id, nome, descricao, preco, imagem }]);
 
-      setNumber(number + 1);
-    } else {
-      setItems([...items]);
+  //     setNumber(number + 1);
+  //   } else {
+  //     setItems([...items]);
 
-      setQuantity(quantity + 1);
-    }
+  //     setQuantity(quantity + 1);
+  //   }
 
-    return console.log(items);
-  }
+  //   return console.log(items);
+  // }
 
   // function remover(produto) {
   //   const novosItens = items
