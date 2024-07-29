@@ -44,6 +44,7 @@ export default function ProductCardCarrinho(props) {
       .filter((i) => i.quantidade > 0);
     alterarItens(novosItens);
   }
+  // aaa
 
   function remover(produto) {
     const novosItens = items
