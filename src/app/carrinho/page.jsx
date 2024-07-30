@@ -46,7 +46,7 @@ export default function Carrinho() {
             {items.length === 0 ? (
               <CarrinhoVazio />
             ) : (
-      <main className="flex  flex-col items-center max-md:mr-64 justify-between p-24">
+      <main className="flex  flex-col items-center max-md:mr-80 justify-between p-24">
 
               <div className="max-md:flex max-md:flex-col max-md:mr-96  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
                 {items.map((dados) => {
