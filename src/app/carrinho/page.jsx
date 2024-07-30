@@ -46,10 +46,10 @@ export default function Carrinho() {
             {items.length === 0 ? (
               <CarrinhoVazio />
             ) : (
-              <div className="flex gap-5 justify-center flex-wrap">
+              <div className="max-md:flex max-md:flex-col max-md:mr-96  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
                 {items.map((dados) => {
                   return (
-                    <div key={dados.id}>
+                    <div className='flex p-5' key={dados.id}>
                       <ProductCardCarrinho
                         nome={dados.nome}
                         descricao={dados.descricao}
