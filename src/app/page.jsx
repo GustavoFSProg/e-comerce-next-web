@@ -1,5 +1,6 @@
 'use client'
 
+import api from '@/api'
 import ProductCard from '@/components/produto/ProductCard'
 import { Pagina } from '@/components/template/Pagina'
 import { CartContext } from '@/data/contexts/CartContext'
@@ -12,10 +13,12 @@ import { useContext, useEffect, useState } from 'react'
 
 export default function Home() {
   const { number } = useContext(CartContext)
-  const [data, setData] = useState([])
+  const [prod, setProd] = useState([])
 
-  function GetDataProducts() {
-    setData(produtos)
+ async function GetDataProducts() {
+    const {data} = await api.get('/products')
+
+    setProd(data)
   }
 
   useEffect(() => {
@@ -29,7 +32,7 @@ export default function Home() {
       <br />
       <main className="flex  flex-col items-center justify-between p-24">
         <div className="flex gap-5 justify-center flex-wrap">
-          {data.map((items) => {
+          {prod.map((items) => {
             return (
               <div key={items.id}>
 

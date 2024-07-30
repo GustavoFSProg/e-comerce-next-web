@@ -64,12 +64,7 @@ export default function ProductCard(props) {
             R$
             <span style={{ marginLeft: "5px" }}>{numberToReal(preco)} </span>
           </span>
-          {/* <button
-            onClick={() => adicionar(props.produto)}
-            className="border rounded-full px-5 py-1 text-sm"
-          >
-            Adicionar
-          </button> */}
+         
           <button
             className="border rounded-full px-5 py-1 text-sm"
             onClick={() =>
