@@ -8,7 +8,7 @@ export function Pagina(props) {
   return (
     <>
       <div
-        className="flex flex-col items-center
+        className="flex overflow-x-hidden flex-col items-center
       
       bg-zinc-950 h-20  min-h-screen "
       >
