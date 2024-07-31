@@ -50,7 +50,9 @@ export default function Carrinho() {
             <br />
 
             {items.length === 0 ? (
+      <div className="flex  flex-col w-full max-md:mr-96 max-md:-ml-96 justify-center p-24">
               <CarrinhoVazio />
+              </div>
             ) : (
       // <main className="flex  flex-col items-center max-md:mr-600 justify-between p-24">
 
