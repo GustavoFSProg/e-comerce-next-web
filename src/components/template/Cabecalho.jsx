@@ -11,7 +11,7 @@ export function Cabecalho() {
     
       className="flex w-full max-md:w-screen justify-between items-center 
       
-    bg-zinc-800 h-20 px-10"
+    bg-zinc-800 h-20 px-10 max-md:h-28 max-md:pt-4 max-md:pb-4"
     >
       <Logo />
       <Carrinho />
