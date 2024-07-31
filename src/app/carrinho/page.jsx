@@ -57,7 +57,7 @@ export default function Carrinho() {
       <main className="flex  flex-col items-center max-md:mr-96 max-md:-ml-32 justify-between p-24">
 
 
-              <div className="max-md:flex max-md:flex-col max-md:mr-96  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
+              <div className="max-md:flex max-md:flex-col max-md:mr-80  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
                 {items.map((dados) => {
                   return (
                     <div className='flex p-5' key={dados.id}>
