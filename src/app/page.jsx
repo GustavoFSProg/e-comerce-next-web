@@ -31,10 +31,10 @@ export default function Home() {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <h1 className="max-md:flex max-md:w-48 max-md:ml-40   max-md:justify-center" style={{fontSize: '27px', paddingLeft: '25px'}}>
+      <h1 className="max-md:flex max-md:w-48 max-md:ml-10   max-md:justify-center" style={{fontSize: '27px', paddingLeft: '25px'}}>
         Loja Virtual de Produtos Eletrônicos</h1>
       <br />
-      <main className="flex  flex-col items-center max-md:mr-80 justify-between p-24">
+      <main className="flex  flex-col items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
         <div className="max-md:flex max-md:flex-col max-md:mr-96  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
           {prod.map((items) => {
             return (

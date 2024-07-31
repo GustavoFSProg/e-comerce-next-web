@@ -39,14 +39,23 @@ export default function Carrinho() {
       <div>
         <Pagina>
           <div className="flex flex-col justify-center items-center">
-            <h1 style={{ fontSize: "30px" }}>CARRINHO DE COMPRAS</h1>
+            <h1 className="flex items-center justify-center
+            
+             ml-80 w-full
+            max-md:flex max-md:w-screen leading-10 text-3xl
+            max-md:text-2xl
+            max-md:mr-72 max-md:-ml-96 pr-80"
+            >CARRINHO DE COMPRAS</h1>
             <br />
             <br />
 
             {items.length === 0 ? (
               <CarrinhoVazio />
             ) : (
-      <main className="flex  flex-col items-center max-md:mr-80 justify-between p-24">
+      // <main className="flex  flex-col items-center max-md:mr-600 justify-between p-24">
+
+      <main className="flex  flex-col items-center max-md:mr-96 max-md:-ml-32 justify-between p-24">
+
 
               <div className="max-md:flex max-md:flex-col max-md:mr-96  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
                 {items.map((dados) => {
