@@ -22,7 +22,7 @@ export default function ProductCard(props) {
       alterarItens([...items, { produto, quantidade: 1 }]);
       setNumber(number + 1);
 
-      console.log(number);
+      // console.log(number);
 
       // set("number", number);
     } else {
@@ -35,7 +35,7 @@ export default function ProductCard(props) {
       alterarItens(novosItens);
     }
 
-    return console.log(items);
+    return items
   }
 
   function alterarItens(novosItens) {

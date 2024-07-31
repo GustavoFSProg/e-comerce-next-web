@@ -28,7 +28,7 @@ export default function ProductCard(props) {
     }
     // set('carrinho', items)
 
-    return console.log(items)
+    return items
   }
 
 

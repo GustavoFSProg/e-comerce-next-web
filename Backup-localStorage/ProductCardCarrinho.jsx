@@ -30,7 +30,7 @@ export default function ProductCardCarrinho(props) {
       setQuantity(quantity + 1);
     }
 
-    return console.log(items);
+    return items
   }
 
   // function remover(produto) {
@@ -62,7 +62,7 @@ export default function ProductCardCarrinho(props) {
     setItems(novosItens);
     set('carrinho', novosItens)
   }
-  console.log(items);
+  // console.log(items);
 
   // useEffect(() => {
 

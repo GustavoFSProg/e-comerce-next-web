@@ -62,7 +62,7 @@ export default function ProductCardCarrinho(props) {
     setItems(novosItens);
     // set('carrinho', novosItens)
   }
-  console.log(items);
+  // console.log(items);
 
   // useEffect(() => {
 

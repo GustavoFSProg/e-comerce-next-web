@@ -15,11 +15,11 @@ export default function Carrinho() {
 
   const { set, get } = useLocalStorage();
 
-  console.log(` IOtems carrrinho: ${items.produto}`);
+  // console.log(` IOtems carrrinho: ${items.produto}`);
 
   function GetDataProducts() {
     setData(items.produto);
-    console.log(`items: ${items}`);
+    // console.log(`items: ${items}`);
   
 
 
@@ -27,7 +27,7 @@ export default function Carrinho() {
 
     // setNumber(numero)
 
-    return console.log(`data: ${data}`);
+    return data
   }
 
   useEffect(() => {
