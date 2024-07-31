@@ -27,10 +27,10 @@ export default function Home() {
 
   return (
     <Pagina>
-        <head>
+        {/* <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+      </head> */}
       <h1 className="max-md:flex max-md:w-48 max-md:ml-10   max-md:justify-center" style={{fontSize: '27px', paddingLeft: '25px'}}>
         Loja Virtual de Produtos Eletrônicos</h1>
       <br />
