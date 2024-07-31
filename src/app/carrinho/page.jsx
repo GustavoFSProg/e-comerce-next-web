@@ -34,29 +34,35 @@ export default function Carrinho() {
     GetDataProducts();
   }, [items]);
 
+  //  max-md:mr-52
+  //            max-md:-ml-96 pr-80
+
   return (
     <>
       <div>
         <Pagina>
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="flex items-center justify-center
+          <div className="flex w-full flex-col justify-center items-center">
+            <h1 style={{width: '100%', }} className="flex items-center justify-center
             
-             ml-80 w-full
+             ml-80 
             max-md:flex max-md:w-screen leading-10 text-3xl
             max-md:text-2xl
-            max-md:mr-72 max-md:-ml-96 pr-80"
+
+    max-md:mr-36
+              max-md:-ml-96 pr-80
+           
+            "
             >CARRINHO DE COMPRAS</h1>
-            <br />
-            <br />
 
             {items.length === 0 ? (
-      <div className="flex  flex-col w-full max-md:mr-96 max-md:-ml-96 justify-center p-24">
+      <div className="flex max-md:mt-10 flex-col w-full max-md:mr-96 max-md:-ml-96 justify-center max-md:pr-52
+       p-24">
               <CarrinhoVazio />
               </div>
             ) : (
       // <main className="flex  flex-col items-center max-md:mr-600 justify-between p-24">
 
-      <main className="flex  flex-col items-center max-md:mr-96 max-md:-ml-32 justify-between p-24">
+      <main className="flex max-md:-mt-10  flex-col items-center max-md:mr-96 max-md:-ml-32 justify-between p-24">
 
 
               <div className="max-md:flex max-md:flex-col max-md:mr-80  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
