@@ -18,7 +18,8 @@ export default function Home() {
  async function GetDataProducts() {
     const {data} = await api.get('/products')
 
-    setProd(data)
+    
+    setProd(data.products)
   }
 
   useEffect(() => {
