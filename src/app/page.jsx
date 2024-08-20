@@ -9,6 +9,7 @@ import { CartContext } from '@/data/contexts/CartContext'
 import Products from '@/data/model/Product'
 import { produtos } from '@/data/model/Products-json'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 
 export default function Home() {
@@ -28,6 +29,9 @@ export default function Home() {
 
   return (
     <Pagina>
+      <Link href="/product" >
+        PRODUTO
+      </Link>
         {/* <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -10,7 +10,7 @@ export function Pagina(props) {
       <div
         className="flex overflow-x-hidden flex-col items-center
       
-      bg-zinc-950 h-20  min-h-screen "
+      bg-zinc-950 h-20  min-h-screen"
       >
         {/* <div className="fixed top-0 left-0 right-0"> */}
 
