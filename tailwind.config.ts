@@ -1,10 +1,14 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  content: [ 
+// "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+// "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+//     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/**/*.{js,ts,jsx,tsx,mdx}',
+    './product/index.tsx',
+// "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   screens: {
     sm: '480px',
