@@ -10,7 +10,7 @@ function CreateProduct() {
   return (
     <Pagina >
         <h1 className="text-2xl">CADASTRO DE PRODUTOS!</h1>
-      <div className="text-black mt-20">
+      <div className="flex w-100 max-md:justify-start justify-center text-black mt-20">
 
       
 
