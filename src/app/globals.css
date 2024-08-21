@@ -22,14 +22,14 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     ) */
   background: black;
-  color: white;
+  /* color: white; */
   
   /* rgb(var(--background-start-rgb)); */
  
