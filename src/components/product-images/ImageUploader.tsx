@@ -38,8 +38,8 @@ const ImageUploader: React.FC = () => {
   const [uploading, setUploading] = useState<boolean>(false)
   // const [progress, setProgress] = useState<number>(0)
   const [products, setProducts] = useState<Product[]>([])
-  const [name, setName] = useState('BOYCETAO')
-  const [preco, setPreco] = useState('396')
+  const [name, setName] = useState('')
+  const [preco, setPreco] = useState('')
   const [descricao, setDescricao] = useState('DESCRICAO')
   const [subtotal, setSubtotal] = useState('000')
   const [quantity, setQuantity] = useState('222')
@@ -59,8 +59,8 @@ const ImageUploader: React.FC = () => {
         
         
         acceptedFiles.forEach((file) => formData.append('imagem', file))
-        formData.append('name', name)
-        formData.append('preco', preco)
+        formData.append('name', Name)
+        formData.append('preco', Preco)
         formData.append('descricao', descricao)
         formData.append('subtotal', subtotal)
         formData.append('quantity', quantity)
@@ -74,6 +74,8 @@ const ImageUploader: React.FC = () => {
         setUploading(false)
         const newUploadedImages = response.data
         setProducts(newUploadedImages)
+
+        return alert("CADASTRADO!")
       } catch (error: unknown) {
         console.error('Error uploading images:', error)
         setUploading(false)
@@ -95,8 +97,8 @@ const ImageUploader: React.FC = () => {
   {
       event.preventDefault()
 
-      // Name = name
-      // Preco = preco
+      Name = name
+      Preco = preco
       // Descricao = descricao
       // Subtotal = subtotal
       // Quantity = quantity
@@ -112,10 +114,13 @@ const ImageUploader: React.FC = () => {
         {({ getRootProps, getInputProps }) => (
           <Wrapper {...getRootProps()}>
             <input {...getInputProps()} />
+
+    
             <Message>Arraste e solte as imagens aqui ou clique para selecionar.</Message>
             {uploading && <p>Carregando...</p>}
           </Wrapper>
         )}
+     
       </Dropzone>
 
       <div style={{display: 'flex', width: '100%',
@@ -125,7 +130,6 @@ const ImageUploader: React.FC = () => {
     }}>
 
             <form onSubmit={handleInputs}>
-
 
 
       NOME:
@@ -143,7 +147,7 @@ const ImageUploader: React.FC = () => {
       paddingLeft: '14px',
      borderRadius: '10px'
     }}
-      />
+      /> 
 
       <br />
 
