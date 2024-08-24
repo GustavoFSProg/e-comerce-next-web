@@ -114,11 +114,14 @@ const ImageUploader: React.FC = () => {
   return (
     <>
       <Dropzone onDrop={onDropCallback} multiple>
-        {({ getRootProps, getInputProps }) => ( 
-          <div className="flex w-full bg-slate-300 h-40 text-black
+        {({ getRootProps, getInputProps }) => (
+          <div
+            className="flex w-full bg-slate-400 h-40 text-black
           rounded
           justify-center
-          items-center" {...getRootProps()}>
+          items-center"
+            {...getRootProps()}
+          >
             <input {...getInputProps()} />
 
             <Message>
@@ -148,7 +151,7 @@ text-black mt-20"
           <div
             className="flex w-100 flex-col max-md:justify-start justify-center 
 
-text-black mt-20 text-white"
+text-black mt-2 text-white"
           >
             <span>Nome:</span>
             <input
