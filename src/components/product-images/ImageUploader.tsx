@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from 'react'
-import Dropzone, { FileRejection } from 'react-dropzone'
-import { AxiosResponse } from 'axios'
-import { styled } from 'styled-components'
-import api from '@/api'
+import React, { useCallback, useState } from "react";
+import Dropzone, { FileRejection } from "react-dropzone";
+import { AxiosResponse } from "axios";
+import { styled } from "styled-components";
+import api from "@/api";
+import "../../app/globals.css";
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,176 +12,196 @@ const Wrapper = styled.div`
   border-radius: 0.5rem;
   padding: 3rem;
   margin: 2rem;
-`
+`;
 const Message = styled.div`
   padding: 3rem;
   border-radius: 0.5rem;
   border: 1px dashed darkgray;
-`
+`;
 
 interface Product {
-  id: string
-  name: string
-  preco: string
-  image: string
-  createdAt: string
-  updatedAt: string
+  id: string;
+  name: string;
+  preco: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
 }
 // const initialState = [{ id: '', name: '', preco: '0.0', image: '', createdAt: '', updatedAt: '' }]
 
-let Name = ''
-let Preco = ''
-let Descricao = ''
-let Subtotal = ''
-let Quantity = ''
+let Name = "";
+let Preco = "";
+let Descricao = "";
+let Subtotal = "";
+let Quantity = "";
 
 const ImageUploader: React.FC = () => {
-  const [uploading, setUploading] = useState<boolean>(false)
+  const [uploading, setUploading] = useState<boolean>(false);
   // const [progress, setProgress] = useState<number>(0)
-  const [products, setProducts] = useState<Product[]>([])
-  const [name, setName] = useState('')
-  const [preco, setPreco] = useState('')
-  const [descricao, setDescricao] = useState('DESCRICAO')
-  const [subtotal, setSubtotal] = useState('000')
-  const [quantity, setQuantity] = useState('222')
-  
+  const [products, setProducts] = useState<Product[]>([]);
+  const [name, setName] = useState("");
+  const [preco, setPreco] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [subtotal, setSubtotal] = useState("0");
+  const [quantity, setQuantity] = useState("1");
+
   const handleDropAsync = useCallback(
     async (acceptedFiles: File[], fileRejections: FileRejection[]) => {
       if (fileRejections.length > 0) {
-        console.log('Rejected files:', fileRejections)
-        return
+        console.log("Rejected files:", fileRejections);
+        return;
       }
 
-      setUploading(true)
-      
+      setUploading(true);
+
       try {
-      const formData = new FormData()
-    console.log(`nOME: ${name}`),
-        
-        
-        acceptedFiles.forEach((file) => formData.append('imagem', file))
-        formData.append('name', Name)
-        formData.append('preco', Preco)
-        formData.append('descricao', descricao)
-        formData.append('subtotal', subtotal)
-        formData.append('quantity', quantity)
-        const response: AxiosResponse<[]> = await api.post('/create-product', formData, {
-          onUploadProgress: (event) => {
-            const progress: number = Math.round((event.loaded * 100) / (event.total || 1))
-            console.log(`As imagens estão ${progress}% carregadas...`)
-          },
-        })
+        const formData = new FormData();
+        console.log(`nOME: ${name}`),
+          acceptedFiles.forEach((file) => formData.append("imagem", file));
+        formData.append("name", Name);
+        formData.append("preco", Preco);
+        formData.append("descricao", Descricao);
+        formData.append("subtotal", subtotal);
+        formData.append("quantity", quantity);
+        const response: AxiosResponse<[]> = await api.post(
+          "/create-product",
+          formData,
+          {
+            onUploadProgress: (event) => {
+              const progress: number = Math.round(
+                (event.loaded * 100) / (event.total || 1)
+              );
+              console.log(`As imagens estão ${progress}% carregadas...`);
+            },
+          }
+        );
 
-        setUploading(false)
-        const newUploadedImages = response.data
-        setProducts(newUploadedImages)
+        setUploading(false);
+        const newUploadedImages = response.data;
+        setProducts(newUploadedImages);
 
-        return alert("CADASTRADO!")
+        return alert("PRODUTO CADASTRADO!");
       } catch (error: unknown) {
-        console.error('Error uploading images:', error)
-        setUploading(false)
+        console.error("Error uploading images:", error);
+        setUploading(false);
       }
     },
     []
-  )
+  );
 
   const onDropCallback = useCallback(
     (acceptedFiles: File[], fileRejections: FileRejection[]) => {
       handleDropAsync(acceptedFiles, fileRejections).catch((error) => {
-        console.error('Error in handleDropAsync:', error)
-      })
+        console.error("Error in handleDropAsync:", error);
+      });
     },
     [handleDropAsync]
-  )
-  
-  function handleInputs(event: { preventDefault: () => void })
-  {
-      event.preventDefault()
+  );
 
-      Name = name
-      Preco = preco
-      // Descricao = descricao
-      // Subtotal = subtotal
-      // Quantity = quantity
+  function handleInputs(event: { preventDefault: () => void }) {
+    event.preventDefault();
 
+    Name = name;
+    Preco = preco;
+    Descricao = descricao;
+    // Subtotal = subtotal
+    // Quantity = quantity
 
-    return console.log(`MEU:${name}`)
+    return console.log(`MEU:${name}`);
   }
   // accept={{ 'imagem/*': [] }}
 
   return (
     <>
-      <Dropzone onDrop={onDropCallback} multiple >
-        {({ getRootProps, getInputProps }) => (
-          <Wrapper {...getRootProps()}>
+      <Dropzone onDrop={onDropCallback} multiple>
+        {({ getRootProps, getInputProps }) => ( 
+          <div className="flex w-full bg-slate-300 h-40 text-black
+          rounded
+          justify-center
+          items-center" {...getRootProps()}>
             <input {...getInputProps()} />
 
-    
-            <Message>Arraste e solte as imagens aqui ou clique para selecionar.</Message>
+            <Message>
+              Arraste e solte as imagens aqui ou clique para selecionar.
+            </Message>
             {uploading && <p>Carregando...</p>}
-          </Wrapper>
+          </div>
         )}
-     
       </Dropzone>
 
-      <div style={{display: 'flex', width: '100%',
+      {/* <div style={{display: 'flex', width: '100%',
       justifyContent: 'flex-start',
       alignItems: 'center',
       marginLeft: '80px'
-    }}>
+    }}> */}
 
-            <form onSubmit={handleInputs}>
+      <div
+        className="flex w-100 max-md:justify-start justify-center 
+items-center
+text-black mt-20"
+      >
+        <form
+          onSubmit={handleInputs}
+          className="flex flex-col h-60 i justify-center
+ items-center            w-100 text-white"
+        >
+          <div
+            className="flex w-100 flex-col max-md:justify-start justify-center 
 
+text-black mt-20 text-white"
+          >
+            <span>Nome:</span>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Nome"
+              className="bg-slate-200 w-80 p-3 text-base mt-2 
+           rounded text-stone-800"
+            />
 
-      NOME:
-      <input type="text"
-      id="name"
-      name="name"
-      value={name}
-      onChange={(e) => setName(e.target.value)} 
-      style={{display: 'flex', width: '24rem',
-      height: '2rem',
-      fontSize: '15px',
-      paddingTop: '16px',
-      paddingBottom: '17px',
-      // paddingRight: '12px',
-      paddingLeft: '14px',
-     borderRadius: '10px' 
-    }}
-      /> 
+            <br />
 
-      <br />
+            <span className="-mt-2">Preço:</span>
+            <input
+              type="text"
+              id="preco"
+              name="preco"
+              value={preco}
+              placeholder="Preço"
+              onChange={(e) => setPreco(e.target.value)}
+              className="bg-slate-200 w-80 p-3 text-base mt-2 
+           rounded text-stone-800"
+            />
+            <br />
+            <span className="-mt-2">Descrição:</span>
+            <input
+              type="text"
+              className="bg-slate-200 w-80 p-3 text-base   mt-2 
+           rounded text-stone-800"
+              id="descricao"
+              name="descricao"
+              value={descricao}
+              placeholder="Descrição"
+              onChange={(e) => setDescricao(e.target.value)}
+            />
+          </div>
 
-      Preço:
-      <input type="text"
-       style={{display: 'flex', width: '  14rem',
-       height: '2rem',
-       fontSize: '15px',
-       paddingTop: '16px',
-       paddingBottom: '17px',
-       // paddingRight: '12px',
-       paddingLeft: '14px',
-      borderRadius: '10px'}}
-      id="preco"
-      name="preco"
-      value={preco}
-      onChange={(e) => setPreco(e.target.value)} />
-      <br />
+          {/* <br /> */}
 
-
-      <button style={{
-        marginLeft: "20px",
-        width: '10rem', height: '30px', borderRadius: '10px'}} type="submit">
-        CADASTRO
-      </button>
-
-      </form>
+          <button
+            className="flex w-80 items-center justify-center 
+      bg-slate-500 p-3 
+      text-sm mt-5 rounded text-slate-200"
+            type="submit"
+          >
+            CADASTRO
+          </button>
+        </form>
       </div>
       <br />
-      <br />
-      <br />
-
-      
 
       {/* {products !== initialState && (
         <div>
@@ -201,7 +222,7 @@ const ImageUploader: React.FC = () => {
         </div>
       )} */}
     </>
-  )
-}
+  );
+};
 
-export default ImageUploader
+export default ImageUploader;

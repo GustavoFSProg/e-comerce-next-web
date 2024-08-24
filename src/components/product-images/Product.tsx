@@ -9,13 +9,13 @@ export const Product = () => {
   return (
     <AdminScreen >
       Cadastrar novo produto
-      <Input
+      {/* <Input
         type="number"
         name="price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Preço do produto"
-      />
+      /> */}
       Arraste e solte as imagens no campo abaixo
       <ImageUploader />
     </AdminScreen>
