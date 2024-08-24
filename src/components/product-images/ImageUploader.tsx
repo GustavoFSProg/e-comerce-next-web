@@ -104,7 +104,7 @@ const ImageUploader: React.FC = () => {
       // Quantity = quantity
 
 
-    return console.log(`MEU CU:${name}`)
+    return console.log(`MEU:${name}`)
   }
   // accept={{ 'imagem/*': [] }}
 
@@ -145,7 +145,7 @@ const ImageUploader: React.FC = () => {
       paddingBottom: '17px',
       // paddingRight: '12px',
       paddingLeft: '14px',
-     borderRadius: '10px'
+     borderRadius: '10px' 
     }}
       /> 
 
