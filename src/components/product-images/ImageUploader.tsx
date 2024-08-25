@@ -113,7 +113,7 @@ const ImageUploader: React.FC = () => {
 
   return (
     <>
-      <Dropzone onDrop={onDropCallback} multiple>
+      {/* <Dropzone onDrop={onDropCallback} multiple>
         {({ getRootProps, getInputProps }) => (
           <div
             className="flex w-full bg-slate-400 h-40 text-black
@@ -131,7 +131,7 @@ const ImageUploader: React.FC = () => {
           </div>
         )}
         
-      </Dropzone>
+      </Dropzone> */}
 
      
       <div
