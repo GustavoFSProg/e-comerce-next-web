@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import Dropzone, { FileRejection } from "react-dropzone";
 import { AxiosResponse } from "axios";
 import { styled } from "styled-components";
-import api from "@/api";
+import api from "../../api";
 import "../../app/globals.css";
 
 const Wrapper = styled.div`
