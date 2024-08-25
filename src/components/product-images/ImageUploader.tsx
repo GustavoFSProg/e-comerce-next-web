@@ -133,12 +133,7 @@ const ImageUploader: React.FC = () => {
         
       </Dropzone>
 
-      {/* <div style={{display: 'flex', width: '100%',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-      marginLeft: '80px'
-    }}> */}
-
+     
       <div
         className="flex w-100 max-md:justify-start justify-center 
 items-center
@@ -194,16 +189,16 @@ text-black mt-2 text-white"
             />
           </div>
 
-          {/* <br /> */}
+         
 
-          <button
+          {/* <button
             className="flex w-80 items-center justify-center 
       bg-slate-500 p-3 
       text-sm mt-5 rounded text-slate-200"
             type="submit"
           >
             CADASTRO
-          </button>
+          </button> */}
         </form>
       </div>
       <br />
