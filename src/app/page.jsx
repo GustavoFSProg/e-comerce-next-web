@@ -29,13 +29,13 @@ export default function Home() {
 
   return (
     <Pagina>
-      <Link href="/product" >
+      <Link href="/product" className='ml-6'>
         PRODUTO
       </Link>
-        {/* <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head> */}
+      <br />
+      <br />
+      
+        
       <h1 className="max-md:flex max-md:w-48 max-md:ml-1 max-md:text-2xl text-3xl 
        max-md:w-72 max-md:text-center max-md:justify-center" 
       style={{ paddingLeft: '25px'}}>
