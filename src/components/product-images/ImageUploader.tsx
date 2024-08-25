@@ -56,7 +56,7 @@ const ImageUploader: React.FC = () => {
 
       try {
         const formData = new FormData();
-        console.log(`nOME: ${name}`),
+        console.log(`NOME: ${name}`),
           acceptedFiles.forEach((file) => formData.append("imagem", file));
         formData.append("name", Name);
         formData.append("preco", Preco);
@@ -130,6 +130,7 @@ const ImageUploader: React.FC = () => {
             {uploading && <p>Carregando...</p>}
           </div>
         )}
+        
       </Dropzone>
 
       {/* <div style={{display: 'flex', width: '100%',
@@ -148,6 +149,7 @@ text-black mt-20"
           className="flex flex-col h-60 i justify-center
  items-center            w-100 text-white"
         >
+       
           <div
             className="flex w-100 flex-col max-md:justify-start justify-center 
 
@@ -194,14 +196,14 @@ text-black mt-2 text-white"
 
           {/* <br /> */}
 
-          {/* <button
+          <button
             className="flex w-80 items-center justify-center 
       bg-slate-500 p-3 
       text-sm mt-5 rounded text-slate-200"
             type="submit"
           >
             CADASTRO
-          </button> */}
+          </button>
         </form>
       </div>
       <br />
