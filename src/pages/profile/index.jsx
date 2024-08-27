@@ -61,8 +61,10 @@ export default function Profile() {
       style={{ paddingLeft: '25px'}}>
         Página do Produto!</h1>
       <main className="flex
-      -mt-12
-      max-md:-mt-10 flex-col items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
+      -mt-16 
+      max-md:-mt-20
+      max-md:-mt-10 flex-col items-center max-md:mr-96 max-md:-ml-36
+       justify-between p-24">
         <div className="max-md:flex max-md:flex-col max-md:mr-80 
          md:justify-center flex justify-center md:gap-5 md:flex-wrap">
                 
@@ -74,14 +76,14 @@ export default function Profile() {
                      {produto.name}
                     </span> 
                 </h1>
-                <h1 className='flex items-center w-100 text-2xl'>
+                <h1 className='flex mt-1 items-center w-100 text-2xl'>
              Descrição:
                   <span className='text-xl ml-4'>
                     
                      {produto.descricao}
                     </span> 
                 </h1>
-                <h1 className='flex items-center w-100 text-2xl'>
+                <h1 className='flex mt-1 items-center w-100 text-2xl'>
              Preço:
                   <span className='text-xl ml-4'>
                     
