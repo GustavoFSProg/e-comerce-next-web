@@ -44,6 +44,7 @@ const ImageUploader: React.FC = () => {
   const [descricao, setDescricao] = useState("");
   const [subtotal, setSubtotal] = useState("0");
   const [quantity, setQuantity] = useState("1");
+  const [open, setOpen] = useState(false);
 
   const handleDropAsync = useCallback(
     async (acceptedFiles: File[], fileRejections: FileRejection[]) => {
@@ -104,8 +105,9 @@ const ImageUploader: React.FC = () => {
     Name = name;
     Preco = preco;
     Descricao = descricao;
-    // Subtotal = subtotal
-    // Quantity = quantity
+   
+    setOpen(true)
+
 
     return console.log(`MEU:${name}`);
   }
@@ -113,7 +115,7 @@ const ImageUploader: React.FC = () => {
 
   return (
     <>
-      {/* <Dropzone onDrop={onDropCallback} multiple>
+    {open === true ?(<>  <Dropzone onDrop={onDropCallback} multiple>
         {({ getRootProps, getInputProps }) => (
           <div
             className="flex w-full bg-slate-400 h-40 text-black
@@ -130,8 +132,9 @@ const ImageUploader: React.FC = () => {
             {uploading && <p>Carregando...</p>}
           </div>
         )}
-        
-      </Dropzone> */}
+          
+     
+      </Dropzone> </>): <h1>CLIQUE NO BOTÃO!</h1>}
 
      
       <div
@@ -191,14 +194,14 @@ text-black mt-2 text-white"
 
          
 
-          <button
+          {/* <button
             className="flex w-80 items-center justify-center 
       bg-slate-500 p-3 
       text-sm mt-5 rounded text-slate-200"
             type="submit"
           >
             CADASTRO
-          </button>
+          </button> */}
         </form>
       </div>
       <br />
