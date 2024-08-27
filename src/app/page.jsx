@@ -51,8 +51,9 @@ export default function Home() {
        max-md:w-72 max-md:text-center max-md:justify-center" 
       style={{ paddingLeft: '25px'}}>
         Loja Virtual de Produtos Eletrônicos</h1>
-      <br />
-      <main className="flex max-md:-mt-10 flex-col items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
+      <main className="flex max-md:-mt-10 flex-col
+      -mt-10
+      items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
         <div className="max-md:flex max-md:flex-col max-md:mr-80  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
           {prod.map((items) => {
             return (
