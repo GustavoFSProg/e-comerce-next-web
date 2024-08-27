@@ -43,7 +43,7 @@ export default function Home() {
       <br />
       <main className="flex max-md:-mt-10 flex-col items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
         <div className="max-md:flex max-md:flex-col max-md:mr-80  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
-          {/* {prod.map((items) => {
+          {prod.map((items) => {
             return (
               <div className='flex p-5' key={items.id}>
 
@@ -57,7 +57,7 @@ export default function Home() {
                 />
                 </div>
             )
-          })} */}
+          })}
         </div>
       </main>
     </Pagina>
