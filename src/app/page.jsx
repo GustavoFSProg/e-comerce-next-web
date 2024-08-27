@@ -56,9 +56,12 @@ export default function Home() {
         <div className="max-md:flex max-md:flex-col max-md:mr-80  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
           {prod.map((items) => {
             return (
-
-              <div onClick={() => handleProfile(items.id)} className='flex p-5' key={items.id}>
-
+                <div  className='flex cursor-pointer flex-col p-5'>
+              <div onClick={() => handleProfile(items.id)}
+               key={items.id}>
+                <h1 className='flex bg-slate-800 p-3'>CLIQUE AQUI IR PARA O PRODUTO</h1>
+                </div>
+                <br />
               <ProductCard
                 nome={items.name}
                 descricao={items.descricao}

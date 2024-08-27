@@ -194,14 +194,14 @@ text-black mt-2 text-white"
 
          
 
-          <button
+          {/* <button
             className="flex w-80 items-center justify-center 
       bg-slate-500 p-3 
       text-sm mt-5 rounded text-slate-200"
             type="submit"
           >
             CADASTRO
-          </button>
+          </button> */}
         </form>
       </div>
       <br />

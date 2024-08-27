@@ -62,7 +62,7 @@ export default function ProductCard(props) {
         <div className="flex justify-between items-center">
           <span className="text-lg font-semibold mt-2">
             R$
-            {/* <span style={{ marginLeft: "5px" }}>{numberToReal(preco)} </span> */}
+            <span style={{ marginLeft: "5px" }}>{numberToReal(preco)} </span>
           </span>
          
           <button

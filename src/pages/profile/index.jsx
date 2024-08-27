@@ -18,6 +18,7 @@ import "../../app/globals.css";
 export default function Profile() {
   const { number } = useContext(CartContext)
   const [prod, setProd] = useState([])
+  const [produto, setProduto] = useState({})
 
   
   async function GetImagesProducts() {
@@ -27,12 +28,23 @@ export default function Profile() {
     
     setProd(data)
 
-    console.log(prod)
   }
+
+
+  async function GetOneProduct() {
+    const produtoId =  sessionStorage.getItem('product-id')
+    const {data} = await api.get(`/profile/${produtoId}`)
+    
+  
+  setProduto(data)
+
+  console.log(produto)
+}
 
   useEffect(() => {
     GetImagesProducts()
-  },)
+    GetOneProduct()
+  },[])
 
 
   return (
@@ -47,15 +59,44 @@ export default function Profile() {
       <h1 className="max-md:flex max-md:w-48 max-md:ml-1 max-md:text-2xl text-3xl 
        max-md:w-72 max-md:text-center max-md:justify-center" 
       style={{ paddingLeft: '25px'}}>
-        produto profile!</h1>
-      <br />
-      <main className="flex max-md:-mt-10 flex-col items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
-        <div className="max-md:flex max-md:flex-col max-md:mr-80  md:justify-center flex justify-center md:gap-5 md:flex-wrap">
-         
+        Página do Produto!</h1>
+      <main className="flex
+      -mt-12
+      max-md:-mt-10 flex-col items-center max-md:mr-96 max-md:-ml-36 justify-between p-24">
+        <div className="max-md:flex max-md:flex-col max-md:mr-80 
+         md:justify-center flex justify-center md:gap-5 md:flex-wrap">
+                
+                   <div className='flex w-full jsutify-center flex-col p-5' >
+             <h1 className='flex items-center w-100 text-2xl'>
+             Nome:
+                  <span className='text-xl ml-4'>
+                    
+                     {produto.name}
+                    </span> 
+                </h1>
+                <h1 className='flex items-center w-100 text-2xl'>
+             Descrição:
+                  <span className='text-xl ml-4'>
+                    
+                     {produto.descricao}
+                    </span> 
+                </h1>
+                <h1 className='flex items-center w-100 text-2xl'>
+             Preço:
+                  <span className='text-xl ml-4'>
+                    
+                     R$ {produto.preco}
+                    </span> 
+                </h1>
+
+             
+                </div>
+                <br />
+                <br />
+          
                 {prod.map((items) => {
                     return (
                         <div className='flex jsutify-center flex-col p-5' key={prod.id}>
-                            <p>{items.idProduto}</p>
                 <Image src={items.images} width="200" height="200" />
 
              
