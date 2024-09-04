@@ -33,7 +33,21 @@ export default function TotalCarrinho(props) {
                     {numberToReal(total)}</span>
                   
             </div>
-            <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4 py-2 rounded-md text-xl">Calcular o Total</button>
+            <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
+             py-2 rounded-md text-xl">Calcular o Total</button>
+
+            {/* <input
+              type="text"
+              className="bg-slate-200 w-80 p-3 text-base   mt-2 
+           rounded text-stone-800"
+            //   id="descricao"
+            //   name="descricao"
+            //   value={descricao}
+              placeholder="CEP"
+            //   onChange={(e) => setDescricao(e.target.value)}
+            />
+            <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
+             py-2 rounded-md text-xl">Calcular o Frete</button> */}
             <button className="bg-green-600 px-4 py-2 rounded-md text-xl">Finalizar</button>
         </div>
     )

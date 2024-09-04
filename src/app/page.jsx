@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <Pagina>
       <Link href="/product" className='ml-6'>
-        PRODUTO
+       CADASTRAR PRODUTO
       </Link>
       <br />
       <br />
