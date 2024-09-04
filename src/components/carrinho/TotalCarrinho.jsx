@@ -1,7 +1,9 @@
+import api from "@/api";
 import { useEffect, useState } from "react";
 
 export default function TotalCarrinho(props) {
     const [totem, setTotem] = useState(0)
+    const [myCep, setMyCep] = useState({})
     
     const total = props.itens.reduce((acc, item) => acc + item.produto.preco * item.produto.quantidade, 0)
     function getTotal(){
@@ -15,6 +17,14 @@ export default function TotalCarrinho(props) {
         var numero = numero.toFixed(2).split('.');
         numero[0] = "R$ " + numero[0].split(/(?=(?:...)*$)/).join('.');
         return numero.join(',');
+    }
+
+async function getCep() {
+   const {dados} =  await api.post('/cep', {CEP: '93340040'})
+    setMyCep(dados)
+
+    console.log(`Retorno: ${toString( myCep)}`)
+    // return dados
     }
     
     // useEffect(() => {
@@ -35,19 +45,21 @@ export default function TotalCarrinho(props) {
             </div>
             <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Total</button>
+            {/* <form onSubmit={}> */}
 
             <input
               type="text"
               className="bg-slate-200 w-80 p-3 text-base   mt-2 
-           rounded text-stone-800"
-            //   id="descricao"
-            //   name="descricao"
-            //   value={descricao}
+              rounded text-stone-800"
+              //   id="descricao"
+                name="myCep"
+              // value={myCep}
               placeholder="CEP"
-            //   onChange={(e) => setDescricao(e.target.value)}
-            />
-            <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
+              // onChange={(e) => setMyCep(e.target.value)}
+              />
+            <button type="submit" onClick={() => getCep()}  className="bg-green-600  max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Frete</button>
+             {/* </form> */}
             <button className="bg-green-600 px-4 py-2 rounded-md text-xl">Finalizar</button>
         </div>
     )
