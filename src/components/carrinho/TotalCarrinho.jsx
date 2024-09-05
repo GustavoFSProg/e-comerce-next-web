@@ -91,9 +91,11 @@ export default function TotalCarrinho(props) {
             </div>
             <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Total</button>
-            <form 
+            <div 
             // onSubmit={() => getURLCEP()}
+            className="flex flex-col justify-center "
             > 
+           
             <input
               type="text"
               className="bg-slate-200 w-80 p-3 text-base   mt-2 
@@ -105,7 +107,6 @@ export default function TotalCarrinho(props) {
               onChange={(e) => setMyCep(e.target.value)}
               />
               
-              </form>
               <br />
             <button type="button" 
              onClick={() => 
@@ -114,9 +115,12 @@ export default function TotalCarrinho(props) {
              } 
             className="bg-green-600  max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Frete</button>
-             <p>
+             <br />
+             
+
+             <p className="mt-3">
                 RUA: 
-                <span>
+                <span className="ml-3">
                     {logradouro}
                 </span>
              </p>
@@ -124,7 +128,7 @@ export default function TotalCarrinho(props) {
 
              <p>
                 BAIRRO: 
-                <span>
+                <span className="ml-3">
                     {neighborhood}
                 </span>
              </p>
@@ -132,7 +136,7 @@ export default function TotalCarrinho(props) {
 
              <p>
                 CIDADE: 
-                <span>
+                <span className="ml-3">
                     {cidade}
                 </span>
              </p>
@@ -142,10 +146,12 @@ export default function TotalCarrinho(props) {
 
              <p>
                 ESTADO: 
-                <span>
+                <span className="ml-3">
                     {estado}
                 </span>
              </p>
+             </div>
+
              <br />
              <br />
 
