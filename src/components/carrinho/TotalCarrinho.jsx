@@ -7,6 +7,7 @@ export default function TotalCarrinho(props) {
     const [neighborhood, setNeighborhood] = useState("")
     const [cidade, setCidade] = useState("")
     const [estado, setEstado] = useState("")
+    const [logradouro, setLogradouro] = useState("")
     
     const total = props.itens.reduce((acc, item) => acc + item.produto.preco * item.produto.quantidade, 0)
     function getTotal(){
@@ -38,13 +39,14 @@ export default function TotalCarrinho(props) {
     //   } 
 
 
-    const checkCEP = () => {
-                 
+    function checkCEP(CEP){
+                //  e.prevent.default()
         // const cep = e.target.value.replace(/\D/g, '');
         // console.log(myCep);
-        fetch("https://viacep.com.br/ws/93340040/json/").then(res => res.json()).then(data => {
+        fetch(`https://viacep.com.br/ws/${CEP}/json/`).then(res => res.json()).then(data => {
           console.log(data);
           // register({ name: 'address', value: data.logradouro });
+          setLogradouro(data.logradouro);
           setNeighborhood(data.bairro);
         //   setValue('neighborhood', data.bairro);
           setCidade(data.localidade);
@@ -52,6 +54,15 @@ export default function TotalCarrinho(props) {
         //   setValue('uf', data.uf);
         //   setFocus('addressNumber');
         });
+
+
+        // return data
+      }
+
+      function getURLCEP(e){
+                 e.prevent.default()
+
+        console.log(` myCep: ${myCep}`)
       }
 
 // async function getCep() {
@@ -80,21 +91,37 @@ export default function TotalCarrinho(props) {
             </div>
             <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Total</button>
-            {/* <form onSubmit={checkCEP}>  */}
-
+            <form 
+            // onSubmit={() => getURLCEP()}
+            > 
             <input
               type="text"
               className="bg-slate-200 w-80 p-3 text-base   mt-2 
               rounded text-stone-800"
-              //   id="descricao"
+                id="myCep"
                 name="myCep"
               value={myCep}
               placeholder="CEP"
               onChange={(e) => setMyCep(e.target.value)}
               />
-            <button type="submit" onClick={() => checkCEP()}  className="bg-green-600  max-md:mb-8  px-4
+              
+              </form>
+              <br />
+            <button type="button" 
+             onClick={() => 
+
+              checkCEP(myCep)
+             } 
+            className="bg-green-600  max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Frete</button>
-             {/* </form> */}
+             <p>
+                RUA: 
+                <span>
+                    {logradouro}
+                </span>
+             </p>
+             <br />
+
              <p>
                 BAIRRO: 
                 <span>
@@ -110,6 +137,8 @@ export default function TotalCarrinho(props) {
                 </span>
              </p>
              <br />
+
+             
 
              <p>
                 ESTADO: 
