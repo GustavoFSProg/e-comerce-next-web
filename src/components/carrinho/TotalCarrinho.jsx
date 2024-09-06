@@ -200,7 +200,7 @@ export default function TotalCarrinho(props) {
         <br />
 
 
-      <p>
+      <p className="text-2xl">
         {frete}
       </p>
       </div>
