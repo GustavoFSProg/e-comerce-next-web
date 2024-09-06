@@ -8,6 +8,7 @@ export default function TotalCarrinho(props) {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [logradouro, setLogradouro] = useState("");
+  const [frete, setFrete] = useState("");
 
   const total = props.itens.reduce(
     (acc, item) => acc + item.produto.preco * item.produto.quantidade,
@@ -60,6 +61,7 @@ export default function TotalCarrinho(props) {
         //   setFocus('addressNumber');
       });
 
+      setFrete("Frete: R$ 26,50") 
     // return data
   }
 
@@ -195,6 +197,12 @@ export default function TotalCarrinho(props) {
           ESTADO:
           <span className="ml-3">{estado}</span>
         </p>
+        <br />
+
+
+      <p>
+        {frete}
+      </p>
       </div>
 
       <br />
