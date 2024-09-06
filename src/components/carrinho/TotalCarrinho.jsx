@@ -81,7 +81,8 @@ export default function TotalCarrinho(props) {
 
 
     return (
-        <div className="flex max-md:-mt-16 max-md:flex-col max-md:items-start items-center justify-between
+        <div className="flex max-md:-mt-16 max-md:flex-col max-md:items-start 
+        items-center justify-between
          bg-zinc-900 rounded-md p-7">
             <div className="flex flex-col justify-between">
                 <span className=" text-zinc-500">Total</span>
@@ -89,16 +90,19 @@ export default function TotalCarrinho(props) {
                     {numberToReal(total)}</span>
                   
             </div>
-            <button onClick={getTotal} className="bg-green-600  max-md:mb-8  px-4
+            <button onClick={getTotal} className="bg-green-600 
+             max-md:mb-8  px-4
              py-2 rounded-md text-xl">Calcular o Total</button>
             <div 
             // onSubmit={() => getURLCEP()}
-            className="flex flex-col justify-center "
+            className="flex flex-col justify-center max-md:w-52"
             > 
            
             <input
               type="text"
-              className="bg-slate-200 w-80 p-3 text-base   mt-2 
+              className="bg-slate-200 w-80 p-3 
+              max-md:w-52
+              text-base   mt-2 
               rounded text-stone-800"
                 id="myCep"
                 name="myCep"
@@ -141,10 +145,7 @@ export default function TotalCarrinho(props) {
                 </span>
              </p>
              <br />
-
-             
-
-             <p>
+             <p >
                 ESTADO: 
                 <span className="ml-3">
                     {estado}
