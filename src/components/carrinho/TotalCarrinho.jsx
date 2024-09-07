@@ -9,6 +9,8 @@ export default function TotalCarrinho(props) {
   const [estado, setEstado] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [frete, setFrete] = useState("");
+  const [checked, setChecked] = useState(false);
+  const [valor, setValor] = useState("");
 
   const total = props.itens.reduce(
     (acc, item) => acc + item.produto.preco * item.produto.quantidade,
@@ -21,6 +23,15 @@ export default function TotalCarrinho(props) {
     );
 
     setTotem(total);
+  }
+
+  function getValor() {
+   setValor("R$ 30,25")
+   setChecked(true)
+
+   console.log(valor)
+
+   return valor
   }
 
   function numberToReal(numero) {
@@ -61,7 +72,7 @@ export default function TotalCarrinho(props) {
         //   setFocus('addressNumber');
       });
 
-      setFrete("Frete: R$ 26,50") 
+    setFrete("Frete: R$ 26,50");
     // return data
   }
 
@@ -147,22 +158,29 @@ export default function TotalCarrinho(props) {
           className="flex
             mt-3
               
-              h-5 w-20 items-center justify-center"
+              h-5 w-58 items-center justify-center"
         >
-          <span>SEDEX</span>
+          <span>SEDEX </span>
           <input
             type="checkbox"
+            // checked="true"
             className="bg-slate-200 w-80 p-3 
               max-md:w-52
               text-base  
               h-4 
+              -ml-24
               rounded text-stone-800"
-            //   id="myCep"
+
+              onClick={() => getValor()}         
+                 //   id="myCep"
             //   name="myCep"
             // value={myCep}
             // placeholder="CEP"
             // onChange={(e) => setMyCep(e.target.value)}
           />
+         
+
+          {checked === true ? ( <span className="flex -ml-24 w-full">{valor}</span> ) : "APAGADO"}
         </div>
 
         <br />
@@ -199,10 +217,8 @@ export default function TotalCarrinho(props) {
         </p>
         <br />
 
-
-      <p className="text-2xl">
-        {frete}
-      </p>
+        <span className="ml-3">FRETE: {valor}</span>
+      
       </div>
 
       <br />
