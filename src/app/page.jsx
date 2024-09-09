@@ -43,6 +43,9 @@ export default function Home() {
       <Link href="/product" className='ml-6'>
        CADASTRAR PRODUTO
       </Link>
+      <Link href="/login" className='ml-6'>
+       LOGIN
+      </Link>
       <br />
       <br />
       
